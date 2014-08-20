@@ -1,7 +1,9 @@
 require 'sinatra/base'
 require 'rack'
 
+require './routes/api'
 require './routes/entry'
+require './routes/manager'
 require './routes/scoreboard'
 
 module Olympics
@@ -15,8 +17,11 @@ module Olympics
 			set :views, File.dirname(__FILE__) + '/views'
 		end
 
+		use Olympics::Routes::API
 		use Olympics::Routes::Entry
 		use Olympics::Routes::Scoreboard
+		use Olympics::Routes::Manager
+
 	end
 end
 
