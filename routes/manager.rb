@@ -7,6 +7,7 @@ module Olympics
 	module Routes
 		class Manager < Sinatra::Application
 			get '/manager' do
+				erb :manager
 				# Display the manager form
 			end
 			post '/manager' do

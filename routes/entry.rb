@@ -4,6 +4,7 @@ module Olympics
 	module Routes
 		class Entry < Sinatra::Application
 			get '/entry' do
+				erb :entry
 				# display form
 			end
 			post '/entry' do
