@@ -15,6 +15,10 @@ $(function() {
 
 		// add input fields
 
+		var classHeader = document.createElement("p");
+		classHeader.setAttribute("class", "class-header");
+		classHeader.appendChild(document.createTextNode("Class #"+highestFormNumber));
+
 		var yearInput = document.createElement("input");
 		yearInput.setAttribute("type", "text");
 		yearInput.setAttribute("name", "year");
@@ -35,10 +39,14 @@ $(function() {
 		themeInput.setAttribute("name", "theme");
 		themeInput.setAttribute("placeholder", "Class theme");
 
+		var hr = document.createElement("hr");
+
+		newForm.appendChild(classHeader);
 		newForm.appendChild(yearInput);
 		newForm.appendChild(nameInput);
 		newForm.appendChild(colorInput);
 		newForm.appendChild(themeInput);
+		newForm.appendChild(hr);
 
 		$("#form"+highestFormNumber).fadeIn();
 	});

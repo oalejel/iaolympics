@@ -34,7 +34,7 @@ input {
 	width:66%;
 }
 
-.forms {
+.forms, .add {
 	width:66%;
 	margin-left:auto;
 	margin-right:auto;
@@ -46,14 +46,11 @@ input {
 	margin-bottom:10px;
 }
 
-#addform {
-	width:66%;
-	margin-left:auto;
-	margin-right:auto;
-	padding-left:20px;
-	padding-right:20px;
+.class-header {
+	font-weight:bold;
 }
 
 .save {
 	margin-top:20px;
+	margin-bottom:20px;
 }
