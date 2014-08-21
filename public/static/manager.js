@@ -26,10 +26,19 @@ $(function() {
 		nameInput.setAttribute("placeholder", "Class name (e.g. seniors, juniors)");
 
 		var colorInput = document.createElement("input");
-		
+		colorInput.setAttribute("type", "text");
+		colorInput.setAttribute("name", "color");
+		colorInput.setAttribute("placeholder", "Class color");
+
+		var themeInput = document.createElement("input");
+		themeInput.setAttribute("type", "text");
+		themeInput.setAttribute("name", "theme");
+		themeInput.setAttribute("placeholder", "Class theme");
 
 		newForm.appendChild(yearInput);
 		newForm.appendChild(nameInput);
+		newForm.appendChild(colorInput);
+		newForm.appendChild(themeInput);
 
 		$("#form"+highestFormNumber).fadeIn();
 	});

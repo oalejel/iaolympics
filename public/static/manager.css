@@ -15,6 +15,19 @@ input {
 	width:100%;
 }
 
+.overview {
+	margin-left:auto;
+	margin-right:auto;
+	width:66%;
+	text-align:center;
+}
+
+.save {
+	margin-left:auto;
+	margin-right:auto;
+	width:66%;
+}
+
 .content {
 	margin-left:auto;
 	margin-right:auto;
@@ -35,6 +48,8 @@ input {
 
 #addform {
 	width:66%;
+	margin-left:auto;
+	margin-right:auto;
 	padding-left:20px;
 	padding-right:20px;
 }
