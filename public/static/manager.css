@@ -44,6 +44,8 @@ input {
 
 .forms input {
 	margin-bottom:10px;
+	height:40px;
+	padding-left:5px;
 }
 
 .class-header {
@@ -52,5 +54,5 @@ input {
 
 .save {
 	margin-top:20px;
-	margin-bottom:20px;
+	margin-bottom:20px0;
 }

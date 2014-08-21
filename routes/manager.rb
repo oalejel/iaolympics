@@ -12,6 +12,7 @@ module Olympics
 			end
 			post '/manager' do
 				# Updates classes using form data
+				"ok"
 			end
 		end
 	end

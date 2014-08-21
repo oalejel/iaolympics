@@ -50,4 +50,17 @@ $(function() {
 
 		$("#form"+highestFormNumber).fadeIn();
 	});
+
+	$("#save").click(function() {
+		var formData = [];
+		for(var i = 1; i < highestFormNumber; i++) {
+			var ithForm = document.getElementById("form"+i);
+			formData.push({'year': ithForm.year.value, 'name': ithForm.name.value, 'color': ithForm.color.value, 'theme': ithForm.theme.value});
+		}
+		$.post('/manager', {'data': formData}, function(data) {
+			if(data == "ok") {
+				// ...
+			}
+		});
+	});
 });
