@@ -1,0 +1,42 @@
+body {
+	font-family:"Lato";
+	font-weight:300;
+}
+
+h2 {
+	color:#333333;
+	font-weight:300;
+	text-align:center;
+}
+
+input {
+	font-family:"Lato";
+	font-weight:300;
+	width:100%;
+}
+
+.content {
+	margin-left:auto;
+	margin-right:auto;
+	width:66%;
+}
+
+.forms {
+	width:66%;
+	padding:20px;
+	background-color:#CCCCCC;
+}
+
+.forms input {
+	margin-bottom:10px;
+}
+
+#addform {
+	width:66%;
+	padding-left:20px;
+	padding-right:20px;
+}
+
+.save {
+	margin-top:20px;
+}
