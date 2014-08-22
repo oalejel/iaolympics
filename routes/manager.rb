@@ -4,11 +4,13 @@
 require 'sinatra'
 require 'json'
 
+require './models/grade'
+
 module Olympics
 	module Routes
 		class Manager < Sinatra::Application
 			get '/manager' do
-				erb :manager
+				erb :manager, :locals => {:grades => Olympics::Models::Grade.all}
 				# Display the manager form
 			end
 			post '/manager' do

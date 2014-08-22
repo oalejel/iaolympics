@@ -3,8 +3,9 @@ require 'data_mapper'
 module Olympics
 	module Models
 		class Event
-			include DataMapper::Event
+			include DataMapper::Resource
 
+			property :id, Serial
 			property :name, String
 
 			has 1, :firstplace
@@ -14,25 +15,33 @@ module Olympics
 
 		end
 
-		class FirstPlace
+		class Firstplace
+			include DataMapper::Resource
+
 			# Represents a first place win
 			belongs_to :grade, :key => true
 			belongs_to :event, :key => true
 		end
 
-		class SecondPlace
+		class Secondplace
+			include DataMapper::Resource
+
 			# Represents a second place performance
 			belongs_to :grade, :key => true
 			belongs_to :event, :key => true
 		end
 
 
-		class ThirdPlace
+		class Thirdplace
+			include DataMapper::Resource
+
 			belongs_to :grade, :key	=> true
 			belongs_to :event, :key => true
 		end
 
-		class FourthPlace
+		class Fourthplace
+			include DataMapper::Resource
+
 			belongs_to :grade, :key => true
 			belongs_to :grade, :key => true
 		end

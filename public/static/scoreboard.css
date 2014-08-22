@@ -1,0 +1,30 @@
+body {
+	font-family:"Lato";
+	font-weight:300;
+}
+
+h2 {
+	color:#333333;
+	font-weight:300;
+	text-align:center;
+}
+
+.footer {
+	text-align:center;
+	color:#777777;
+}
+
+#source {
+	text-decoration:none;
+	color:#333333;
+}
+
+#source:hover {
+	color:#111111;
+}
+
+.scoreboard {
+	margin-left:auto;
+	margin-right:auto;
+	width:66%;
+}

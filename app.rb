@@ -6,6 +6,8 @@ require './routes/entry'
 require './routes/manager'
 require './routes/scoreboard'
 
+load './models.rb'
+
 module Olympics
 	class App < Sinatra::Application
 		configure do
