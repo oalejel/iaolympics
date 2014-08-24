@@ -9,7 +9,7 @@ h2 {
 	text-align:center;
 }
 
-input {
+input, select {
 	font-family:"Lato";
 	font-weight:300;
 	width:100%;
@@ -42,7 +42,7 @@ input {
 	background-color:#CCCCCC;
 }
 
-.forms input {
+.forms input, .forms select {
 	margin-bottom:10px;
 	height:40px;
 	padding-left:5px;
@@ -67,3 +67,4 @@ input {
 
 #x:active {
 	color:#AAAAAA;
+}

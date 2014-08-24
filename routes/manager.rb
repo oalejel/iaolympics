@@ -9,7 +9,9 @@ module Olympics
 	module Routes
 		class Manager < Sinatra::Application
 			get '/manager' do
-				erb :manager, :locals => {:grades => Olympics::Models::Grade.all}
+				grades = Olympics::Models::Grade.all
+				puts grades.inspect
+				erb :manager, :locals => {:grades => grades}
 				# Display the manager form
 			end
 			post '/manager' do
