@@ -15,6 +15,11 @@ module Olympics
 				# Grabs score data
 				
 			end
+			post '/api/grade/:gradeid/delete' do
+				grade = Olympics::Models::Grade.get(params[:gradeid])
+				grade.destroy
+				"ok"
+			end
 		end
 	end
 end
