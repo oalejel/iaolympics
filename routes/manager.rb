@@ -2,7 +2,6 @@
 # Ability to edit each class' theme, color, etc.
 
 require 'sinatra'
-require 'json'
 
 require './models/grade'
 
@@ -15,17 +14,17 @@ module Olympics
 			end
 			post '/manager' do
 				# Updates classes using form data
-				json_form_data = params[:data]
-				form_data = JSON.parse(json_form_data)
-				form_data.each do |form|
-					year = form[:year]
-					name = form[:name]
-					colorhex = form[:color]
-					theme = form[:theme]
+				forms = params[:data]
+				forms.each do |form|
+					grade = form[1]
+					year = grade[:year]
+					name = grade[:name]
+					colorhex = grade[:color]
+					theme = grade[:theme]
 
-					g = Grade.create(:year => year,
+					g = Olympics::Models::Grade.create(:year => year,
 									:name => name,
-									:colorhex => color,
+									:colorhex => colorhex,
 									:theme => theme)
 					
 					"ok"
