@@ -48,7 +48,7 @@ $(function() {
 		newForm.appendChild(themeInput);
 		newForm.appendChild(hr);
 
-		$("#x").on('click', function() {
+		$(deleteP).click(function() {
 			$(this).parent().hide();
 		});
 
