@@ -16,6 +16,7 @@
 			<div id="forms" class="forms">
 				<% grades.each do |grade| %>
 					<div class="grade<% grade.id %>">
+						<p id="x">x</p>
 						<p id="year"><% grade.year %></p>
 						<p id="name"><% grade.name %></p>
 						<p id="color"><% grade.colorhex %></p>
@@ -24,6 +25,7 @@
 					</div>
 				<% end %>
 				<form action="" method="post" id="form1">
+					<p id="x">x</p>
 					<input type="text" placeholder="Class year" name="year"/>
 					<input type="text" placeholder="Class name (e.g. seniors, juniors)" name="name"/>
 					<input type="text" placeholder="Class color" name="color"/> <!-- replace with color picker -->

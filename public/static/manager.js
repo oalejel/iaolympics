@@ -15,9 +15,9 @@ $(function() {
 
 		// add input fields
 
-		var classHeader = document.createElement("p");
-		classHeader.setAttribute("class", "class-header");
-		classHeader.appendChild(document.createTextNode("Class #"+highestFormNumber));
+		var deleteP = document.createElement("p");
+		deleteP.setAttribute("id", "x");
+		deleteP.appendChild(document.createTextNode("x"));
 
 		var yearInput = document.createElement("input");
 		yearInput.setAttribute("type", "text");
@@ -41,12 +41,16 @@ $(function() {
 
 		var hr = document.createElement("hr");
 
-		newForm.appendChild(classHeader);
+		newForm.appendChild(deleteP);
 		newForm.appendChild(yearInput);
 		newForm.appendChild(nameInput);
 		newForm.appendChild(colorInput);
 		newForm.appendChild(themeInput);
 		newForm.appendChild(hr);
+
+		$("#x").on('click', function() {
+			$(this).parent().hide();
+		});
 
 		$("#form"+highestFormNumber).fadeIn();
 	});
@@ -55,6 +59,7 @@ $(function() {
 		var formData = [];
 		for(var i = 1; i < highestFormNumber; i++) {
 			var ithForm = document.getElementById("form"+i);
+			console.log(ithForm);
 			formData.push({'year': ithForm.year.value, 'name': ithForm.name.value, 'color': ithForm.color.value, 'theme': ithForm.theme.value});
 		}
 		$.post('/manager', {'data': formData}, function(data) {
@@ -62,5 +67,9 @@ $(function() {
 				// ...
 			}
 		});
+	});
+
+	$("#x").on('click', function() {
+		$(this).parent().hide();
 	});
 });

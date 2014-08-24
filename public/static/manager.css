@@ -54,5 +54,15 @@ input {
 
 .save {
 	margin-top:20px;
-	margin-bottom:20px0;
+	margin-bottom:20px;
 }
+
+#x {
+	width:100%;
+	text-align:right;
+	font-weight:bold;
+	color:#777777;
+}
+
+#x:active {
+	color:#AAAAAA;
