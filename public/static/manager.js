@@ -24,10 +24,16 @@ $(function() {
 		yearInput.setAttribute("name", "year");
 		yearInput.setAttribute("placeholder", "Class year");
 
-		var nameInput = document.createElement("input");
-		nameInput.setAttribute("type", "text");
+		var nameInput = document.createElement("select");
 		nameInput.setAttribute("name", "name");
-		nameInput.setAttribute("placeholder", "Class name (e.g. seniors, juniors)");
+
+		var names = ["Freshmen", "Sophomores", "Juniors", "Seniors"];
+		for(var i = 0; i < names.length; i++) {
+			var option = document.createElement("option");
+			option.setAttribute("name", names[i].toLowerCase());
+			option.appendChild(document.createTextNode(names[i]));
+			nameInput.appendChild(option);
+		}
 
 		var colorInput = document.createElement("input");
 		colorInput.setAttribute("type", "text");
