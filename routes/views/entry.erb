@@ -15,15 +15,26 @@
 			</div>
 			<div class="buttons">
 				<div class="button">
-					<p class="centered"><a class="pure-button">Add scores for an event</a></p>
+					<p class="centered"><a class="pure-button action" id="add-scores">Add scores for an event</a></p>
 				</div>
 				<div class="button">
-					<p class="centered"><a class="pure-button">Deduct points</a></p>
+					<p class="centered"><a class="pure-button action" id="deduct">Deduct points</a></p>
 				</div>
 				<div class="button">
-					<p class="centered"><a class="pure-button">Re-score an existing event</a></p>
+					<p class="centered"><a class="pure-button action" id="rescore">Re-score an existing event</a></p>
 				</div>
 			</div>
+			<div id="add-score-form" class="form">
+				<form action="" method="post">
+					<!-- TODO replace with <select>s -->
+					<input type="text" name="event-name" placeholder="Event name...">
+					<input type="text" name="freshman-score" placeholder="Freshman score...">
+					<input type="text" name="sophomore-score" placeholder="Sophomore score...">
+					<input type="text" name="junior-score" placeholder="Junior score...">
+					<input type="text" name="senior-score" placeholder="Senior score...">
+					<input type="submit" class="pure-button pure-button-primary">
+				</form>
+				<p><a class="pure-button" id="back-button">&lt;&lt;&lt; Go back</a></p>
 			</div>
 		</div>
 	</body>
