@@ -11,10 +11,25 @@ module Olympics
 			# To avoid confusion with the word "class", the word "grade" is used
 		
 			property :year, Integer
-			property :name, String # seniors, juniors, etc.
 			property :colorhex, String # e.g. black would be 000000
 			property :theme, String
 
 		end
+
+		class FreshmanGrade < Grade
+			
+		end
+
+		class SophomoreGrade < Grade
+
+		end
+
+		class JuniorGrade < Grade
+
+		end
+
+		class SeniorGrade < Grade
+
+		end	
 	end
 end
