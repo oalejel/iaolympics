@@ -14,32 +14,31 @@
 				<p>Use the form below to manage the different classes at IA (e.g. the class of 2015).</p>
 			</div>
 			<div id="forms" class="forms">
-				<% grades.each do |grade| %>
-					<div class="grade<%= grade.id %>">
-						<p id="x" data-grade="<%= grade.id %>">x</p>
-						<p id="year"><p><b>Year:</b> <%= grade.year %></p>
-						<p id="name"><b>Name:</b> <%= grade.name %></p>
-						<p id="color"><b>Color:</b> <%= grade.colorhex %></p>
-						<p id="theme"><b>Theme:</b> <%= grade.theme %></p>
-						<hr/>
-					</div>
-				<% end %>
-				<form action="" method="post" id="form1">
-					<p id="x">x</p>
-					<input type="text" placeholder="Class year" name="year"/>
-					<select name="name">
-						<option name="freshmen">Freshmen</option>
-						<option name="sophomores">Sophomores</option>
-						<option name="juniors">Juniors</option>
-						<option name="seniors">Seniors</option>
-					</select>
-					<input type="text" placeholder="Class color" name="color"/> <!-- replace with color picker -->
-					<input type="text" placeholder="Class theme" name="theme"/>
+				<div class="grade" id="freshmen">
+					<p><b>Freshmen</b></p>
+					<p id="year"><b>Year:</b> <%= freshman_grade.year %></p>
+					<p id="color"><b>Color:</b> <%= freshman_grade.colorhex %></p>
+					<p id="theme"><b>Theme:</b> <%= freshman_grade.theme %></p>
 					<hr/>
-				</form>
-			</div>
-			<div class="add">
-				<a id="addform" class="pure-button">Add another class...</a>
+				</div>
+				<div class="grade" id="sophomore">
+					<p><b>Sophomores</b></p>
+					<p id="year"><b>Year:</b> <%= sophomore_grade.year %></p>
+					<p id="color"><b>Color:</b> <%= sophomore_grade.colorhex %></p>
+					<p id="theme"><b>Theme:</b> <%= sophomore_grade.theme %></p>
+				</div>
+				<div class="grade" id="junior">
+					<p><b>Juniors</b></p>
+					<p id="year"><b>Year:</b> <%= junior_grade.year %></p>
+					<p id="color"><b>Color:</b> <%= junior_grade.colorhex %></p>
+					<p id="theme"><b>Theme:</b> <%= junior_grade.theme %></p>
+				</div>
+				<div class="grade" id="senior">
+					<p><b>Seniors</b></p>
+					<p id="year"><b>Year:</b> <%= senior_grade.year %></p>
+					<p id="color"><b>Color:</b> <%= senior_grade.colorhex %></p>
+					<p id="theme"><b>Theme:</b> <%= senior_grade.theme %></p>
+				</div>
 			</div>
 			<div class="save">
 				<a id="save" class="pure-button pure-button-primary">Save changes</a>
