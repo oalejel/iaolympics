@@ -7,12 +7,36 @@ require './models/grade'
 
 module Olympics
 	module Routes
+		class PlaceholderGrade
+			def initialize
+				@year = "Year..."
+				@name = "Name..."
+				@colorhex = "#FFFFFF"
+				@theme = "Theme..."
+			end
+			attr_reader  :year, :name, :colorhex, :theme
+		end
 		class Manager < Sinatra::Application
 			get '/manager' do
 				freshman_grade = Olympics::Models::Grade.first(:freshman => true)
 				sophomore_grade = Olympics::Models::Grade.first(:sophomore => true)
 				junior_grade = Olympics::Models::Grade.first(:junior => true)
 				senior_grade = Olympics::Models::Grade.first(:senior => true)
+
+				# If the grades don't exist (first time loading up the form), fill it in with default values
+
+				if freshman_grade == nil
+					freshman_grade = PlaceholderGrade.new
+				end
+				if sophomore_grade == nil
+					sophomore_grade = PlaceholderGrade.new
+				end
+				if junior_grade == nil
+					junior_grade = PlaceholderGrade.new
+				end
+				if senior_grade == nil
+					senior_grade = PlaceholderGrade.new
+				end
 				erb :manager, :locals => {:freshman_grade => freshman_grade, :sophomore_grade => sophomore_grade,
 										  :junior_grade => junior_grade, :senior_grade => senior_grade}
 				# Display the manager form
