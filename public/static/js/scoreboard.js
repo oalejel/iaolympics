@@ -32,10 +32,10 @@ $(function() {
 		juniorGrade = data[2];
 		seniorGrade = data[3];
 
-		$("#freshman-score").css('background-color', freshmanGrade["colorhex"]);
-		$("#sophomore-score").css('background-color', sophomoreGrade["colorhex"]);
-		$("#junior-score").css('background-color', juniorGrade["colorhex"]);
-		$("#senior-score").css('background-color', seniorGrade["colorhex"]);
+		$("#freshman-score").css('background-color', JSON.parse(freshmanGrade)["colorhex"]);
+		$("#sophomore-score").css('background-color', JSON.parse(sophomoreGrade)["colorhex"]);
+		$("#junior-score").css('background-color', JSON.parse(juniorGrade)["colorhex"]);
+		$("#senior-score").css('background-color', JSON.parse(seniorGrade)["colorhex"]);
 	});
 
 	var divs = ["senior-score", "junior-score", "sophomore-score", "freshman-score"];
