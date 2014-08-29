@@ -12,4 +12,12 @@ $(function() {
 	$("#add-scores").click(function() {
 		$("#add-score-form").fadeIn();
 	});
+
+	$("#back-button").click(function() {
+		$("#add-score-form").hide();
+		$("#deduct-form").hide();
+		$("#rescore-form").hide();
+		$(".buttons").show();
+		$(".centered").show();
+	});
 });
