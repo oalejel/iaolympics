@@ -7,6 +7,7 @@ module Olympics
 
 			property :id, Serial
 			property :name, String
+			property :prettyname, String
 
 			has 1, :firstplace
 			has 1, :secondplace

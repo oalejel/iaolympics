@@ -29,14 +29,19 @@ $(function() {
 		$(".centered").show();
 	});
 
+	var validated = function(form) {
+		return true;
+	}
+
 	$("#save-scores").click(function(e) {
 		e.preventDefault();
 		var scoreForm = document.getElementById("score-form");
-
-		$.post('/api/scores', {'eventName': scoreForm.eventName.value, 'firstPlace': scoreForm.firstPlace.value, 'secondPlace': scoreForm.secondPlace.value, 'thirdPlace': scoreForm.thirdPlace.value, 'fourthPlace': scoreForm.fourthPlace.value}, function(data) {
-			if(data == "ok") {
-				// ...
-			}
-		});
+		if(validated(scoreForm)) {
+			$.post('/api/scores', {'event': scoreForm.eventName.value, 'firstPlace': scoreForm.firstPlace.value, 'secondPlace': scoreForm.secondPlace.value, 'thirdPlace': scoreForm.thirdPlace.value, 'fourthPlace': scoreForm.fourthPlace.value}, function(data) {
+				if(data == "ok") {
+					// ...
+				}
+			});
+		}
 	});
 });

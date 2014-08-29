@@ -11,7 +11,7 @@ module Olympics
 			property :id, Serial
 			property :year, Integer
 
-			has n, :events
+			# has n, :events
 		end
 	end
 end
