@@ -13,6 +13,14 @@ $(function() {
 		$("#add-score-form").fadeIn();
 	});
 
+	$("#deduct").click(function() {
+		$("#deduct-form").fadeIn();
+	});
+
+	$("#rescore").click(function() {
+		$("#rescore-form").fadeIn();
+	});
+
 	$("#back-button").click(function() {
 		$("#add-score-form").hide();
 		$("#deduct-form").hide();
