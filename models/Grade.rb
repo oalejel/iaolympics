@@ -5,31 +5,22 @@ module Olympics
 		class Grade
 			include DataMapper::Resource
 
-			property :id, Serial
-
 			# Represents a class of IA students, e.g. the class of 2015
 			# To avoid confusion with the word "class", the word "grade" is used
-		
+			
+			property :id, Serial
+
 			property :year, Integer
 			property :colorhex, String # e.g. black would be 000000
 			property :theme, String
 
-		end
+			# One of these must be true
 
-		class FreshmanGrade < Grade
-			
-		end
-
-		class SophomoreGrade < Grade
-
-		end
-
-		class JuniorGrade < Grade
+			property :freshman, Boolean
+			property :sophomore, Boolean
+			property :junior, Boolean
+			property :senior, Boolean
 
 		end
-
-		class SeniorGrade < Grade
-
-		end	
 	end
 end
