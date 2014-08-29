@@ -30,7 +30,32 @@ $(function() {
 	});
 
 	var validated = function(form) {
-		return true;
+		var result = true;
+
+		firstPlace = form.firstPlace.value;
+		secondPlace = form.secondPlace.value;
+		thirdPlace = form.thirdPlace.value;
+		fourthPlace = form.fourthPlace.value;
+
+		places = [firstPlace, secondPlace, thirdPlace, fourthPlace];
+		for(var i = 0; i < places.length; i++) {
+			for(var j = 0; j < places.length; j++) {
+				if(i != j && places[i] == places[j]) {
+					// we have two equal place values
+					result = false;
+				}
+			}
+		}
+
+		for(var k = 0; k < places.length; k++) {
+			if(places[k].indexOf("...") > -1) {
+				// one of the placeholder values has been selected
+				// invalid
+				result = false;
+			}
+		}
+
+		return result;
 	}
 
 	$("#save-scores").click(function(e) {

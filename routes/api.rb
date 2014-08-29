@@ -13,9 +13,9 @@ module Olympics
 				if Olympics::Models::Event.first(:name => "hallway") == nil
 					# Since all of the events are created in batch, if one event doesn't exist then none exist.
 					a = Olympics::Models::Event.create(:name => "hallway", :prettyname => "Hallway")
-					Olympics::Models::Event.create(:name => "tshirt", :prettyname => "T-shirt contest")
-					Olympics::Models::Event.create(:name => "class-banner", :prettyname => "Class banner")
-					Olympics::Models::Event.create(:name => "tug-of-war", :prettyname => "Tug of war")
+					Olympics::Models::Event.create(:name => "tshirt", :prettyname => "T-shirt Contest")
+					Olympics::Models::Event.create(:name => "class-banner", :prettyname => "Class Banner")
+					Olympics::Models::Event.create(:name => "tug-of-war", :prettyname => "Tug of War")
 					Olympics::Models::Event.create(:name => "oakland-county-500-race", :prettyname => "Oakland County 500 (Race)")
 					Olympics::Models::Event.create(:name => "oakland-county-500-artistic", :prettyname => "Oakland County 500 (Artistic)")
 					Olympics::Models::Event.create(:name => "watermelon-eating-contest", :prettyname => "Watermelon Eating Contest")
