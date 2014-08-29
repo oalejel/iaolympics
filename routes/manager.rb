@@ -22,8 +22,6 @@ module Olympics
 				junior_grade = Olympics::Models::Grade.first(:junior => true)
 				senior_grade = Olympics::Models::Grade.first(:senior => true)
 
-				puts freshman_grade.inspect
-
 				# If the grades don't exist (first time loading up the form), fill it in with default values
 
 				if freshman_grade == nil
@@ -45,8 +43,6 @@ module Olympics
 			post '/manager' do
 				# Updates classes using form data
 				forms = params[:data]
-				
-				puts forms
 
 				# Update freshmen
 

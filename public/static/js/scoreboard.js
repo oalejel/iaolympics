@@ -23,6 +23,21 @@ $(function() {
 		jqElement.animate({'width': percentageString}, 1000);
 	}
 
+	$.get('/api/grades', function(jsonData) {
+
+		var data = JSON.parse(jsonData);
+
+		freshmanGrade = data[0];
+		sophomoreGrade = data[1];
+		juniorGrade = data[2];
+		seniorGrade = data[3];
+
+		$("#freshman-score").css('background-color', freshmanGrade["colorhex"]);
+		$("#sophomore-score").css('background-color', sophomoreGrade["colorhex"]);
+		$("#junior-score").css('background-color', juniorGrade["colorhex"]);
+		$("#senior-score").css('background-color', seniorGrade["colorhex"]);
+	});
+
 	var divs = ["senior-score", "junior-score", "sophomore-score", "freshman-score"];
 	var scores = [];
 
