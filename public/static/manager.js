@@ -65,7 +65,15 @@ $(function() {
 		var formData = [];
 		for(var i = 1; i <= highestFormNumber; i++) {
 			var ithForm = document.getElementById("form"+i);
-			formData.push({'year': ithForm.year.value, 'name': ithForm.name.value, 'color': ithForm.color.value, 'theme': ithForm.theme.value});
+
+			var ithYear = ithForm.year.value;
+			var ithName = ithForm.name.value;
+			var ithColor = ithForm.color.value;
+			var ithTheme = ithForm.theme.value;
+
+			if(ithYear != "Year..." && ithName != "Name..." && ithTheme != "Theme...") {
+				formData.push({'year': ithYear, 'name': ithName, 'color': ithColor, 'theme': ithTheme});
+			}
 		}
 		$.post('/manager', {'data': formData}, function(data) {
 			if(data == "ok") {

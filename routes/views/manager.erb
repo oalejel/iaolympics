@@ -14,30 +14,30 @@
 				<p>Use the form below to manage the different classes at IA (e.g. the class of 2015).</p>
 			</div>
 			<div id="forms" class="forms">
-				<div class="grade" id="freshmen">
+				<form action="" method="post" class="grade" id="form1">
 					<p><b>Freshmen</b></p>
-					<input type="text" name="freshmen-year" id="year" value="<%= freshman_grade.year %>"/>
-					<input type="text" name="freshmen-color" id="color" value="<%= freshman_grade.colorhex %>"/>
-					<input type="text" name="freshmen-theme" id="theme" value="<%= freshman_grade.theme %>"/>
-				</div>
-				<div class="grade" id="sophomore">
+					<input type="text" name="year" id="year" value="<%= freshman_grade.year %>"/>
+					<input type="text" name="color" id="color" value="<%= freshman_grade.colorhex %>"/>
+					<input type="text" name="theme" id="theme" value="<%= freshman_grade.theme %>"/>
+				</form>
+				<form action="" method="post" class="grade" id="form2">
 					<p><b>Sophomores</b></p>
-					<input type="text" name="sophomores-year" id="year" value="<%= sophomore_grade.year %>"/>
-					<input type="text" name="sophomores-color" id="color" value="<%= sophomore_grade.colorhex %>"/>
-					<input type="text" name="sophomores-theme" id="theme" value="<%= sophomore_grade.theme %>"/>
-				</div>
-				<div class="grade" id="junior">
+					<input type="text" name="year" id="year" value="<%= sophomore_grade.year %>"/>
+					<input type="text" name="color" id="color" value="<%= sophomore_grade.colorhex %>"/>
+					<input type="text" name="theme" id="theme" value="<%= sophomore_grade.theme %>"/>
+				</form>
+				<form action="" method="post" class="grade" id="form3">
 					<p><b>Juniors</b></p>
-					<input type="text" name="juniors-year" id="year" value="<%= junior_grade.year %>"/>
-					<input type="text" name="juniors-color" id="color" value="<%= junior_grade.colorhex %>"/>
-					<input type="text" name="juniors-theme" id="theme" value="<%= junior_grade.theme %>"/>
-				</div>
-				<div class="grade" id="senior">
+					<input type="text" name="year" id="year" value="<%= junior_grade.year %>"/>
+					<input type="text" name="color" id="color" value="<%= junior_grade.colorhex %>"/>
+					<input type="text" name="theme" id="theme" value="<%= junior_grade.theme %>"/>
+				</form>
+				<form action="" method="post" class="grade" id="form4">
 					<p><b>Seniors</b></p>
-					<input type="text" name="seniors-year" id="year" value="<%= senior_grade.year %>"/>
-					<input type="text" name="seniors-color" id="color" value="<%= senior_grade.colorhex %>"/>
-					<input type="text" name="seniors-theme" id="theme" value="<%= senior_grade.theme %>"/>
-				</div>
+					<input type="text" name="year" id="year" value="<%= senior_grade.year %>"/>
+					<input type="text" name="color" id="color" value="<%= senior_grade.colorhex %>"/>
+					<input type="text" name="theme" id="theme" value="<%= senior_grade.theme %>"/>
+				</form>
 			</div>
 			<div class="save">
 				<a id="save" class="pure-button pure-button-primary">Save changes</a>
