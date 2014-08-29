@@ -68,3 +68,10 @@ input, select {
 #x:active {
 	color:#AAAAAA;
 }
+
+.confirmation {
+	padding:20px;
+	background-color:#c5eab2;
+	-webkit-border-radius:3px;
+	margin-bottom:5px;
+}

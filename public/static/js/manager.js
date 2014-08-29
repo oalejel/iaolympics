@@ -81,7 +81,13 @@ $(function() {
 		if(valid) {
 			$.post('/manager', {'data': formData}, function(data) {
 				if(data == "ok") {
-					// ...
+					var confirmation = document.createElement("div");
+					confirmation.setAttribute("class", "confirmation");
+					confirmation.appendChild(document.createTextNode("Changes saved."));
+					document.getElementById("save-container").insertBefore(confirmation, document.getElementById("save"));
+					setTimeout(function() {
+						$(confirmation).fadeOut(500);
+					}, 3000);
 				}
 				else {
 					console.log("there was an error.");
