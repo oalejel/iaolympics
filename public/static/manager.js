@@ -64,7 +64,7 @@ $(function() {
 	$("#save").click(function() {
 		var formData = [];
 		var valid = true;
-		for(var i = 1; i <= highestFormNumber; i++) {
+		for(var i = 1; i <= 4; i++) {
 			var ithForm = document.getElementById("form"+i);
 
 			var ithYear = ithForm.year.value;
