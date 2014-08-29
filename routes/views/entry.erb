@@ -25,9 +25,8 @@
 				</div>
 			</div>
 			<div id="add-score-form" class="form">
-				<form action="" method="post">
-					<!-- TODO replace with <select>s -->
-					<select name="event-name">
+				<form action="" method="post" id="score-form">
+					<select name="eventName">
 						<option name="null">Event name...</option>
 						<option name="hallway">Hallway</option>
 						<option name="tshirt">T-shirt</option>
@@ -52,35 +51,35 @@
 						<option name="4-square">4 Square</option>
 						<option name="soccer">Soccer</option>
 					</select>
-					<select name="first-place">
+					<select name="firstPlace">
 						<option name="null">First place...</option>
 						<option name="freshmen">Freshmen</option>
 						<option name="sophomores">Sophomores</option>
 						<option name="juniors">Juniors</option>
 						<option name="seniors">Seniors</option>
 					</select>
-					<select name="second-place">
+					<select name="secondPlace">
 						<option name="null">Second place...</option>
 						<option name="freshmen">Freshmen</option>
 						<option name="sophomores">Sophomores</option>
 						<option name="juniors">Juniors</option>
 						<option name="seniors">Seniors</option>
 					</select>
-					<select name="third-place">
+					<select name="thirdPlace">
 						<option name="null">Third place...</option>
 						<option name="freshmen">Freshmen</option>
 						<option name="sophomores">Sophomores</option>
 						<option name="juniors">Juniors</option>
 						<option name="seniors">Seniors</option>
 					</select>
-					<select name="fourth-place">
+					<select name="fourthPlace">
 						<option name="null">Fourth place...</option>
 						<option name="freshmen">Freshmen</option>
 						<option name="sophomores">Sophomores</option>
 						<option name="juniors">Juniors</option>
 						<option name="seniors">Seniors</option>
 					</select>
-					<input type="submit" class="pure-button pure-button-primary">
+					<input type="submit" class="pure-button pure-button-primary" id="save-scores">
 				</form>
 				<p><a class="pure-button" id="back-button">&lt;&lt;&lt; Go back</a></p>
 			</div>

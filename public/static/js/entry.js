@@ -28,4 +28,15 @@ $(function() {
 		$(".buttons").show();
 		$(".centered").show();
 	});
+
+	$("#save-scores").click(function(e) {
+		e.preventDefault();
+		var scoreForm = document.getElementById("score-form");
+
+		$.post('/api/scores', {'eventName': scoreForm.eventName.value, 'firstPlace': scoreForm.firstPlace.value, 'secondPlace': scoreForm.secondPlace.value, 'thirdPlace': scoreForm.thirdPlace.value, 'fourthPlace': scoreForm.fourthPlace.value}, function(data) {
+			if(data == "ok") {
+				// ...
+			}
+		});
+	});
 });

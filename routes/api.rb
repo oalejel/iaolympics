@@ -8,13 +8,13 @@ require 'sinatra'
 module Olympics
 	module Routes
 		class API < Sinatra::Application
-			post '/api/score/:eventid' do
-				# Updates scores for an event with a given ID
-
-			end
 			get '/api/scores' do
 				# Grabs score data
 				
+			end
+			post '/api/scores' do
+				# Updates scores for an event with a given ID
+
 			end
 			get '/api/grades' do
 				grades = Array.new
