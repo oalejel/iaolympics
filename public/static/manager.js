@@ -63,6 +63,7 @@ $(function() {
 
 	$("#save").click(function() {
 		var formData = [];
+		var valid = true;
 		for(var i = 1; i <= highestFormNumber; i++) {
 			var ithForm = document.getElementById("form"+i);
 
@@ -71,18 +72,22 @@ $(function() {
 			var ithColor = ithForm.color.value;
 			var ithTheme = ithForm.theme.value;
 
-			if(ithYear != "Year..." && ithName != "Name..." && ithTheme != "Theme...") {
-				formData.push({'year': ithYear, 'name': ithName, 'color': ithColor, 'theme': ithTheme});
+			formData.push({'year': ithYear, 'name': ithName, 'color': ithColor, 'theme': ithTheme});
+
+			if(ithYear == "Year..." || ithName == "Name..." || ithTheme == "Theme...") {
+				valid = false;
 			}
 		}
-		$.post('/manager', {'data': formData}, function(data) {
-			if(data == "ok") {
-				// ...
-			}
-			else {
-				console.log("there was an error.");
-			}
-		});
+		if(valid) {
+			$.post('/manager', {'data': formData}, function(data) {
+				if(data == "ok") {
+					// ...
+				}
+				else {
+					console.log("there was an error.");
+				}
+			});
+		}
 	});
 
 	$("#x").on('click', function() {
