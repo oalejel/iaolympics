@@ -22,6 +22,8 @@ module Olympics
 				junior_grade = Olympics::Models::Grade.first(:junior => true)
 				senior_grade = Olympics::Models::Grade.first(:senior => true)
 
+				puts freshman_grade.inspect
+
 				# If the grades don't exist (first time loading up the form), fill it in with default values
 
 				if freshman_grade == nil
@@ -57,6 +59,7 @@ module Olympics
 					freshman_grade.year = freshman_data[:year]
 					freshman_grade.colorhex = freshman_data[:color]
 					freshman_grade.theme = freshman_data[:theme]
+					freshman_grade.save
 				end
 
 				sophomore_data = forms["1"]
@@ -68,6 +71,7 @@ module Olympics
 					sophomore_grade.year = sophomore_data[:year]
 					sophomore_grade.colorhex = sophomore_data[:color]
 					sophomore_grade.theme = sophomore_data[:theme]
+					sophomore_grade.save
 				end
 
 				junior_data = forms["2"]
@@ -79,6 +83,7 @@ module Olympics
 					junior_grade.year = junior_data[:year]
 					junior_grade.colorhex = junior_data[:color]
 					junior_grade.theme = junior_data[:theme]
+					junior_grade.save
 				end
 
 				senior_data = forms["3"]
@@ -90,6 +95,7 @@ module Olympics
 					senior_grade.year = senior_data[:year]
 					senior_grade.colorhex = senior_data[:color]
 					senior_grade.theme = senior_data[:theme]
+					senior_grade.save
 				end
 
 				"ok"
