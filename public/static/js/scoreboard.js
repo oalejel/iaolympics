@@ -54,8 +54,11 @@ $(function() {
 		var divs = ["senior-score", "junior-score", "sophomore-score", "freshman-score"];
 		var scores = [];
 
+		var divsToNames = {"senior-score": "Seniors", "junior-score": "Juniors", "sophomore-score": "Sophomores", "freshman-score": "Freshmen"}
+
 		for(var i = 0; i < divs.length; i++) {
 			var jqDiv = $("#"+divs[i]);
+			jqDiv.text(divsToNames[divs[i]] + ": " + jqDiv.attr('data-score'));
 			/* set its width to 0, 
 				grab its score,
 				and add it to the scores list */

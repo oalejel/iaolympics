@@ -63,7 +63,7 @@ module Olympics
 								symbols_to_scorevars[grade_symbol] += 6
 							end
 							if event.fourthplace.grade.attributes[grade_symbol]
-								symbols_to_scorevars[grade_symbol] += 6
+								symbols_to_scorevars[grade_symbol] += 4
 							end
 						end
 					end
