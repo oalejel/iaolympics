@@ -38,39 +38,59 @@ $(function() {
 		$("#senior-score").css('background-color', JSON.parse(seniorGrade)["colorhex"]);
 	});
 
-	$.get('/api/scores', function(jsonData) {
-		data = JSON.parse(jsonData);
+	var originalScores = [$("#freshman-score").attr('data-score'), $("#sophomore-score").attr('data-score'),
+								  $("#junior-score").attr('data-score'), $("#senior-score").attr('data-score')];
 
-		freshmanScore = data["freshman"];
-		sophomoreScore = data["sophomore"];
-		juniorScore = data["junior"];
-		seniorScore = data["senior"];
+	var loadScores = function() {
+		$.get('/api/scores', function(jsonData) {
 
-		$("#freshman-score").attr('data-score', freshmanScore);
-		$("#sophomore-score").attr('data-score', sophomoreScore);
-		$("#junior-score").attr('data-score', juniorScore);
-		$("#senior-score").attr('data-score', seniorScore);
+			data = JSON.parse(jsonData);
 
-		var divs = ["senior-score", "junior-score", "sophomore-score", "freshman-score"];
-		var scores = [];
+			freshmanScore = data["freshman"];
+			sophomoreScore = data["sophomore"];
+			juniorScore = data["junior"];
+			seniorScore = data["senior"];
 
-		var divsToNames = {"senior-score": "Seniors", "junior-score": "Juniors", "sophomore-score": "Sophomores", "freshman-score": "Freshmen"}
+			$("#freshman-score").attr('data-score', freshmanScore);
+			$("#sophomore-score").attr('data-score', sophomoreScore);
+			$("#junior-score").attr('data-score', juniorScore);
+			$("#senior-score").attr('data-score', seniorScore);
 
-		for(var i = 0; i < divs.length; i++) {
-			var jqDiv = $("#"+divs[i]);
-			jqDiv.text(divsToNames[divs[i]] + ": " + jqDiv.attr('data-score'));
-			/* set its width to 0, 
-				grab its score,
-				and add it to the scores list */
-			jqDiv.css('width', '0%');
-			var score = parseInt(jqDiv.attr('data-score'));
-			scores.push(score);
-		}
+			var divs = ["senior-score", "junior-score", "sophomore-score", "freshman-score"];
+			var scores = [];
 
-		var scoreboard = new Scoreboard(scores);
+			var divsToNames = {"senior-score": "Seniors", "junior-score": "Juniors", "sophomore-score": "Sophomores", "freshman-score": "Freshmen"}
 
-		for(var i = 0; i < divs.length; i++) {
-			scoreboard.createSlidebar($("#"+divs[i]), scores[i]);
-		}
-	});
+
+
+			for(var i = 0; i < divs.length; i++) {
+				var jqDiv = $("#"+divs[i]);
+				jqDiv.text(divsToNames[divs[i]] + ": " + jqDiv.attr('data-score'));
+				var score = parseInt(jqDiv.attr('data-score'));
+				scores.push(score);
+			}
+
+			var hasChanged = false;
+
+			for(var i = 0; i < divs.length; i++) {
+				if(originalScores[i] != scores[i]) {
+					hasChanged = true;
+					break;
+				}
+			}
+
+			if(hasChanged) {
+				var scoreboard = new Scoreboard(scores);
+				for(var i = 0; i < divs.length; i++) {
+					var jqDiv = $("#"+divs[i]);
+					jqDiv.css('width', '0%');
+					originalScores[i] = scores[i];
+					scoreboard.createSlidebar($("#"+divs[i]), scores[i]);
+				}
+			}
+		});
+	}
+
+	loadScores();
+	setInterval(loadScores, 5000);
 });
