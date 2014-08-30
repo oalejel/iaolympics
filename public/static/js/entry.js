@@ -29,6 +29,16 @@ $(function() {
 		$(".centered").show();
 	});
 
+	$("#save-deduction").click(function(e) {
+		e.preventDefault();
+		var deductionForm = document.getElementById("deduct-form");
+		$.post('/api/deduct', {'grade': deductionForm.grade.value, 'points': deductionForm.points.value}, function(data) {
+			if(data == "ok") {
+				// ...
+			}
+		});
+	})
+
 	var validated = function(form) {
 		var result = true;
 

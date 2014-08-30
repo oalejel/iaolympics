@@ -104,6 +104,21 @@ module Olympics
 
 				return grades.to_json
 			end
+			post '/api/deduct' do
+
+				names_to_grades = {"Freshmen" => Olympics::Models::Grade.first(:freshman => true), 
+									"Sophomores" => Olympics::Models::Grade.first(:sophomore => true),
+									"Juniors" => Olympics::Models::Grade.first(:junior => true),
+									"Seniors" => Olympics::Models::Grade.first(:senior => true)}
+
+				gradename = params[:grade]
+				points = params[:points]
+
+				names_to_grades[gradename].deducted_points += points.to_i
+				names_to_grades[gradename].save
+
+				"ok"
+			end
 			post '/api/grade/:gradeid/delete' do
 				grade = Olympics::Models::Grade.get(params[:gradeid])
 				grade.destroy
