@@ -63,9 +63,7 @@ $(function() {
 		var scoreForm = document.getElementById("score-form");
 		if(validated(scoreForm)) {
 			$.post('/api/scores', {'event': scoreForm.eventName.value, 'firstPlace': scoreForm.firstPlace.value, 'secondPlace': scoreForm.secondPlace.value, 'thirdPlace': scoreForm.thirdPlace.value, 'fourthPlace': scoreForm.fourthPlace.value}, function(data) {
-				if(data == "ok") {
-					// ...
-				}
+				alert("Changes saved.");
 			});
 		}
 	});

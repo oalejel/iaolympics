@@ -38,22 +38,36 @@ $(function() {
 		$("#senior-score").css('background-color', JSON.parse(seniorGrade)["colorhex"]);
 	});
 
-	var divs = ["senior-score", "junior-score", "sophomore-score", "freshman-score"];
-	var scores = [];
+	$.get('/api/scores', function(jsonData) {
+		data = JSON.parse(jsonData);
 
-	for(var i = 0; i < divs.length; i++) {
-		var jqDiv = $("#"+divs[i]);
-		/* set its width to 0, 
-			grab its score,
-			and add it to the scores list */
-		jqDiv.css('width', '0%');
-		var score = parseInt(jqDiv.attr('data-score'));
-		scores.push(score);
-	}
+		freshmanScore = data["freshman"];
+		sophomoreScore = data["sophomore"];
+		juniorScore = data["junior"];
+		seniorScore = data["senior"];
 
-	var scoreboard = new Scoreboard(scores);
+		$("#freshman-score").attr('data-score', freshmanScore);
+		$("#sophomore-score").attr('data-score', sophomoreScore);
+		$("#junior-score").attr('data-score', juniorScore);
+		$("#senior-score").attr('data-score', seniorScore);
 
-	for(var i = 0; i < divs.length; i++) {
-		scoreboard.createSlidebar($("#"+divs[i]), scores[i]);
-	}
+		var divs = ["senior-score", "junior-score", "sophomore-score", "freshman-score"];
+		var scores = [];
+
+		for(var i = 0; i < divs.length; i++) {
+			var jqDiv = $("#"+divs[i]);
+			/* set its width to 0, 
+				grab its score,
+				and add it to the scores list */
+			jqDiv.css('width', '0%');
+			var score = parseInt(jqDiv.attr('data-score'));
+			scores.push(score);
+		}
+
+		var scoreboard = new Scoreboard(scores);
+
+		for(var i = 0; i < divs.length; i++) {
+			scoreboard.createSlidebar($("#"+divs[i]), scores[i]);
+		}
+	});
 });

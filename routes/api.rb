@@ -12,7 +12,7 @@ module Olympics
 				# Generates a list of events (if they don't exist already)
 				if Olympics::Models::Event.first(:name => "hallway") == nil
 					# Since all of the events are created in batch, if one event doesn't exist then none exist.
-					a = Olympics::Models::Event.create(:name => "hallway", :prettyname => "Hallway")
+					Olympics::Models::Event.create(:name => "hallway", :prettyname => "Hallway")
 					Olympics::Models::Event.create(:name => "tshirt", :prettyname => "T-shirt Contest")
 					Olympics::Models::Event.create(:name => "class-banner", :prettyname => "Class Banner")
 					Olympics::Models::Event.create(:name => "tug-of-war", :prettyname => "Tug of War")
@@ -41,7 +41,35 @@ module Olympics
 			end
 			get '/api/scores' do
 				# Grabs score data
-				
+				events = Olympics::Models::Event.all
+
+				freshman_score = 0
+				sophomore_score = 0
+				junior_score = 0
+				senior_score = 0
+
+				symbols_to_scorevars = {:freshman => freshman_score, :sophomore => sophomore_score, :junior => junior_score, :senior => senior_score}
+
+				events.each do |event|
+					if event.firstplace != nil
+						[:freshman, :sophomore, :junior, :senior].each do |grade_symbol|
+							if event.firstplace.attributes[grade_symbol]
+								symbols_to_scorevars[grade_symbol] += 10
+							end
+							if event.secondplace.attributes[grade_symbol]
+								symbols_to_scorevars[grade_symbol] += 8
+							end
+							if event.thirdplace.attributes[grade_symbol]
+								symbols_to_scorevars[grade_symbol] += 6
+							end
+							if event.fourthplace.attributes[grade_symbol]
+								symbols_to_scorevars[grade_symbol] += 6
+							end
+						end
+					end
+				end
+
+				symbols_to_scorevars.to_json
 			end
 			post '/api/scores' do
 
@@ -58,6 +86,7 @@ module Olympics
 				fourth_place = params[:fourthplace]
 
 				event = Olympics::Models::Event.first(:prettyname => event_name)
+				
 				event.firstplace = names_to_grades[first_place]
 				event.secondplace = names_to_grades[second_place]
 				event.thirdplace = names_to_grades[third_place]
