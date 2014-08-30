@@ -49,6 +49,8 @@ module Olympics
 				senior_score = 0
 
 				symbols_to_scorevars = {:freshman => freshman_score, :sophomore => sophomore_score, :junior => junior_score, :senior => senior_score}
+				grades = [Olympics::Models::Grade.first(:freshman => true), Olympics::Models::Grade.first(:sophomore => true), Olympics::Models::Grade.first(:junior => true), Olympics::Models::Grade.first(:senior => true)]
+				grades_to_scorevars = {grades[0] => freshman_score, grades[1] => sophomore_score, grades[2] => junior_score, grades[3] => senior_score}
 
 				events.each do |event|
 					if event.firstplace != nil
@@ -67,6 +69,10 @@ module Olympics
 							end
 						end
 					end
+				end
+
+				grades.each do |grade|
+					grades_to_scorevars[grade] -= grade.deducted_points
 				end
 
 				symbols_to_scorevars.to_json
