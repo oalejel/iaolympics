@@ -44,7 +44,7 @@ module Olympics
 			include DataMapper::Resource
 
 			belongs_to :grade, :key => true
-			belongs_to :grade, :key => true
+			belongs_to :event, :key => true
 		end
 	end
 end
