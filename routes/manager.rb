@@ -49,7 +49,7 @@ module Olympics
 				freshman_data = forms["0"]
 				freshman_grade = Olympics::Models::Grade.first(:freshman => true)
 				if freshman_grade == nil
-					freshman_grade = Olympics::Models::Grade.create(:year => freshman_data[:year], :colorhex => freshman_data[:color], :theme => freshman_data[:theme],
+					freshman_grade = Olympics::Models::Grade.create(:deducted_points => 0, :year => freshman_data[:year], :colorhex => freshman_data[:color], :theme => freshman_data[:theme],
 																	:freshman => true, :sophomore => false, :junior => false, :senior => false)
 				else
 					freshman_grade.year = freshman_data[:year]
@@ -61,7 +61,7 @@ module Olympics
 				sophomore_data = forms["1"]
 				sophomore_grade = Olympics::Models::Grade.first(:sophomore => true)
 				if sophomore_grade == nil
-					sophomore_grade = Olympics::Models::Grade.create(:year => sophomore_data[:year], :colorhex => sophomore_data[:color], :theme => sophomore_data[:theme],
+					sophomore_grade = Olympics::Models::Grade.create(:deducted_points => 0, :year => sophomore_data[:year], :colorhex => sophomore_data[:color], :theme => sophomore_data[:theme],
 																	:freshman => false, :sophomore => true, :junior => false, :senior => false)
 				else
 					sophomore_grade.year = sophomore_data[:year]
@@ -73,7 +73,7 @@ module Olympics
 				junior_data = forms["2"]
 				junior_grade = Olympics::Models::Grade.first(:junior => true)
 				if junior_grade == nil
-					junior_grade = Olympics::Models::Grade.create(:year => junior_data[:year], :colorhex => junior_data[:color], :theme => junior_data[:theme],
+					junior_grade = Olympics::Models::Grade.create(:deducted_points => 0, :year => junior_data[:year], :colorhex => junior_data[:color], :theme => junior_data[:theme],
 																:freshman => false, :sophomore => false, :junior => true, :senior => false)
 				else
 					junior_grade.year = junior_data[:year]
@@ -85,7 +85,7 @@ module Olympics
 				senior_data = forms["3"]
 				senior_grade = Olympics::Models::Grade.first(:senior => true)
 				if senior_grade == nil
-					senior_grade = Olympics::Models::Grade.create(:year => senior_data[:year], :colorhex => senior_data[:color], :theme => senior_data[:theme],
+					senior_grade = Olympics::Models::Grade.create(:deducted_points => 0, :year => senior_data[:year], :colorhex => senior_data[:color], :theme => senior_data[:theme],
 																 :freshman => false, :sophomore => false, :junior => false, :senior => true)
 				else
 					senior_grade.year = senior_data[:year]

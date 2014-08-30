@@ -14,6 +14,8 @@ module Olympics
 			property :colorhex, String # e.g. black would be 000000
 			property :theme, String
 
+			property :deducted_points, Integer
+
 			# One of these must be true
 
 			property :freshman, Boolean
