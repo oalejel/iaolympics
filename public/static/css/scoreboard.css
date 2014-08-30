@@ -30,26 +30,11 @@ h2 {
 }
 
 .score {
+	width:0%;
 	color:#FFFFFF;
 	padding-left:20px;
 	padding-top:15px;
 	padding-bottom:15px;
 	-webkit-border-top-right-radius:2px;
 	-webkit-border-bottom-right-radius:2px;
-}
-
-#senior-score {
-	background-color:#000000;
-}
-
-#junior-score {
-	background-color:#2c4762;
-}
-
-#sophomore-score {
-	background-color:#577e14;
-}
-
-#freshman-score {
-	background-color:#bcbcbc;
 }
