@@ -50,7 +50,7 @@ module Olympics
 
 				symbols_to_scorevars = {:freshman => freshman_score, :sophomore => sophomore_score, :junior => junior_score, :senior => senior_score}
 				grades = [Olympics::Models::Grade.first(:freshman => true), Olympics::Models::Grade.first(:sophomore => true), Olympics::Models::Grade.first(:junior => true), Olympics::Models::Grade.first(:senior => true)]
-				grades_to_scorevars = {grades[0] => freshman_score, grades[1] => sophomore_score, grades[2] => junior_score, grades[3] => senior_score}
+				grades_to_symbols = {grades[0] => :freshman, grades[1] => :sophomores, grades[2] => :juniors, grades[3] => :seniors}
 
 				events.each do |event|
 					if event.firstplace != nil
@@ -72,7 +72,9 @@ module Olympics
 				end
 
 				grades.each do |grade|
-					grades_to_scorevars[grade] -= grade.deducted_points
+					if grade.deducted_points != nil
+						symbols_to_scorevars[grades_to_symbols[grade]] -= grade.deducted_points
+					end
 				end
 
 				symbols_to_scorevars.to_json
@@ -120,7 +122,12 @@ module Olympics
 				gradename = params[:grade]
 				points = params[:points]
 
-				names_to_grades[gradename].deducted_points += points.to_i
+				if names_to_grades[gradename].deducted_points != nil
+					names_to_grades[gradename].deducted_points += points.to_i
+				else
+					names_to_grades[gradename].deducted_points = points.to_i
+				end
+
 				names_to_grades[gradename].save
 
 				"ok"

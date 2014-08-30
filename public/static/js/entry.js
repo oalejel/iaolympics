@@ -31,7 +31,7 @@ $(function() {
 
 	$("#save-deduction").click(function(e) {
 		e.preventDefault();
-		var deductionForm = document.getElementById("deduct-form");
+		var deductionForm = document.getElementById("deduction");
 		$.post('/api/deduct', {'grade': deductionForm.grade.value, 'points': deductionForm.points.value}, function(data) {
 			if(data == "ok") {
 				// ...
