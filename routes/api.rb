@@ -139,72 +139,40 @@ module Olympics
 			end
 
 
-			get '/api/freshman' do
+			def get_scores grade_symbol
 				events_to_scores = Hash.new
-				events = Event.all
+				events = Olympics::Models::Event.all
 				events.each do |event|
-					if event.firstplace.grade.freshman
-						events_to_scores[event] = 10
-					elsif event.secondplace.grade.freshman
-						events_to_scores[event] = 8
-					elsif event.thirdplace.grade.freshman
-						events_to_scores[event] = 6
-					elsif event.fourthplace.grade.freshman
-						events_to_scores[event] = 4
+					if event.firstplace != nil
+						# scores have been tabulated for this event
+						if event.firstplace.grade.attributes[grade_symbol]
+							events_to_scores[event.prettyname] = 10
+						elsif event.secondplace.grade.attributes[grade_symbol]
+							events_to_scores[event.prettyname] = 8
+						elsif event.thirdplace.grade.attributes[grade_symbol]
+							events_to_scores[event.prettyname] = 6
+						elsif event.fourthplace.grade.attributes[grade_symbol]
+							events_to_scores[event.prettyname] = 4
+						end
 					end
 				end
-				events_to_scores.to_json
+				events_to_scores
+			end
+
+			get '/api/freshman' do
+				get_scores(:freshman).to_json
 			end
 
 			get '/api/sophomore' do
-				events_to_scores = Hash.new
-				events = Event.all
-				events.each do |event|
-					if event.firstplace.grade.sophomore
-						events_to_scores[event] = 10
-					elsif event.secondplace.grade.sophomore
-						events_to_scores[event] = 8
-					elsif event.thirdplace.grade.sophomore
-						events_to_scores[event] = 6
-					elsif event.fourthplace.grade.sophomore
-						events_to_scores[event] = 4
-					end
-				end
-				events_to_scores.to_json
+				get_scores(:sophomore).to_json
 			end
 
 			get '/api/junior' do
-				events_to_scores = Hash.new
-				events = Event.all
-				events.each do |event|
-					if event.firstplace.grade.junior
-						events_to_scores[event] = 10
-					elsif event.secondplace.grade.junior
-						events_to_scores[event] = 8
-					elsif event.thirdplace.grade.junior
-						events_to_scores[event] = 6
-					elsif event.fourthplace.grade.junior
-						events_to_scores[event] = 4
-					end
-				end
-				events_to_scores.to_json
+				get_scores(:junior).to_json
 			end
 
 			get '/api/senior' do
-				events_to_scores = Hash.new
-				events = Event.all
-				events.each do |event|
-					if event.firstplace.grade.senior
-						events_to_scores[event] = 10
-					elsif event.secondplace.grade.senior
-						events_to_scores[event] = 8
-					elsif event.thirdplace.grade.senior
-						events_to_scores[event] = 6
-					elsif event.fourthplace.grade.senior
-						events_to_scores[event] = 4
-					end
-				end
-				events_to_scores.to_json
+				get_scores(:senior).to_json
 			end
 		end
 	end

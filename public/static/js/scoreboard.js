@@ -65,7 +65,6 @@ $(function() {
 
 			for(var i = 0; i < divs.length; i++) {
 				var jqDiv = $("#"+divs[i]);
-				jqDiv.text(divsToNames[divs[i]] + ": " + jqDiv.attr('data-score'));
 				var score = parseInt(jqDiv.attr('data-score'));
 				scores.push(score);
 			}
@@ -83,6 +82,7 @@ $(function() {
 				var scoreboard = new Scoreboard(scores);
 				for(var i = 0; i < divs.length; i++) {
 					var jqDiv = $("#"+divs[i]);
+					jqDiv.text(divsToNames[divs[i]] + ": " + jqDiv.attr('data-score'));
 					jqDiv.css('width', '0%');
 					originalScores[i] = scores[i];
 					scoreboard.createSlidebar($("#"+divs[i]), scores[i]);
@@ -108,15 +108,16 @@ $(function() {
 		else if($(this).attr('id') == 'senior-score') {
 			endpointUrl = '/api/senior';
 		}
+		var jqElement = $(this);
 		$.get(endpointUrl, function(data) {
-			var detailText;
+			var detailText = "";
 			var scores = JSON.parse(data);
 			for(var score in scores) {
 				if(scores.hasOwnProperty(score)) {
-					text += score + ": " + scores[score] + "\n";
+					detailText += score + ": " + scores[score] + "\n";
 				}
 			}
-			$(this).text($(this).text + "\n" + detailText);
+			jqElement.text(jqElement.text() + "\n" + detailText);
 		});
 	});
 });
