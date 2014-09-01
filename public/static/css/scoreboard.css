@@ -40,3 +40,8 @@ h2 {
 	-webkit-border-top-right-radius:2px;
 	-webkit-border-bottom-right-radius:2px;
 }
+
+.detail {
+	font-size:18px;
+	font-weight:300;
+}

@@ -109,15 +109,19 @@ $(function() {
 			endpointUrl = '/api/senior';
 		}
 		var jqElement = $(this);
+		var detailP = document.createElement("p");
+		detailP.setAttribute("class", "detail");
+		this.appendChild(detailP);
 		$.get(endpointUrl, function(data) {
-			var detailText = "";
+			var detailHtml = "";
 			var scores = JSON.parse(data);
 			for(var score in scores) {
 				if(scores.hasOwnProperty(score)) {
-					detailText += score + ": " + scores[score] + "\n";
+					detailHtml += score + ": " + scores[score] + "<br/>";
 				}
 			}
-			jqElement.text(jqElement.text() + "\n" + detailText);
+			$(detailP).html(detailHtml);
+			// jqElement.text(jqElement.text() + "\n" + detailText);
 		});
 	});
 });
