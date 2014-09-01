@@ -50,7 +50,7 @@ module Olympics
 
 				symbols_to_scorevars = {:freshman => freshman_score, :sophomore => sophomore_score, :junior => junior_score, :senior => senior_score}
 				grades = [Olympics::Models::Grade.first(:freshman => true), Olympics::Models::Grade.first(:sophomore => true), Olympics::Models::Grade.first(:junior => true), Olympics::Models::Grade.first(:senior => true)]
-				grades_to_symbols = {grades[0] => :freshman, grades[1] => :sophomores, grades[2] => :juniors, grades[3] => :seniors}
+				grades_to_symbols = {grades[0] => :freshman, grades[1] => :sophomore, grades[2] => :junior, grades[3] => :senior}
 
 				events.each do |event|
 					if event.firstplace != nil

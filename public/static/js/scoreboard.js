@@ -118,7 +118,21 @@ $(function() {
 				var scores = JSON.parse(data);
 				for(var score in scores) {
 					if(scores.hasOwnProperty(score)) {
-						detailHtml += score + ": " + scores[score] + "<br/>";
+						detailHtml += "<b>" + score + "</b>: ";
+						if(scores[score] == 10) {
+							detailHtml += "1st place";
+						}
+						else if(scores[score] == 8) {
+							detailHtml += "2nd place";
+						}
+						else if(scores[score] == 6) {
+							detailHtml += "3rd place";
+						}
+						else if(scores[score] == 4) {
+							detailHtml += "4th place";
+						}
+						detailHtml += " (" + scores[score] + " points)";
+						detailHtml += "<br/>";
 					}
 				}
 				$(detailP).html(detailHtml);
