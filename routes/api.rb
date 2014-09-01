@@ -156,6 +156,16 @@ module Olympics
 						end
 					end
 				end
+				
+				# Grab deducted points
+
+				grade = Olympics::Models::Grade.first(grade_symbol => true)
+				if grade.deducted_points == nil
+					events_to_scores["Deducted points"] = 0
+				else
+					events_to_scores["Deducted points"] = grade.deducted_points
+				end
+
 				events_to_scores
 			end
 
