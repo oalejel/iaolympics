@@ -119,19 +119,24 @@ $(function() {
 				for(var score in scores) {
 					if(scores.hasOwnProperty(score)) {
 						detailHtml += "<b>" + score + "</b>: ";
-						if(scores[score] == 10) {
-							detailHtml += "1st place";
+						if(score != "Deducted points") {
+							if(scores[score] == 10) {
+								detailHtml += "1st place";
+							}
+							else if(scores[score] == 8) {
+								detailHtml += "2nd place";
+							}
+							else if(scores[score] == 6) {
+								detailHtml += "3rd place";
+							}
+							else if(scores[score] == 4) {
+								detailHtml += "4th place";
+							}
+							detailHtml += " (" + scores[score] + " points)";
 						}
-						else if(scores[score] == 8) {
-							detailHtml += "2nd place";
+						else {
+							detailHtml += scores[score] + " points";
 						}
-						else if(scores[score] == 6) {
-							detailHtml += "3rd place";
-						}
-						else if(scores[score] == 4) {
-							detailHtml += "4th place";
-						}
-						detailHtml += " (" + scores[score] + " points)";
 						detailHtml += "<br/>";
 					}
 				}
