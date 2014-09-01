@@ -140,19 +140,71 @@ module Olympics
 
 
 			get '/api/freshman' do
-				
+				events_to_scores = Hash.new
+				events = Event.all
+				events.each do |event|
+					if event.firstplace.grade.freshman
+						events_to_scores[event] = 10
+					elsif event.secondplace.grade.freshman
+						events_to_scores[event] = 8
+					elsif event.thirdplace.grade.freshman
+						events_to_scores[event] = 6
+					elsif event.fourthplace.grade.freshman
+						events_to_scores[event] = 4
+					end
+				end
+				events_to_scores.to_json
 			end
 
 			get '/api/sophomore' do
-
+				events_to_scores = Hash.new
+				events = Event.all
+				events.each do |event|
+					if event.firstplace.grade.sophomore
+						events_to_scores[event] = 10
+					elsif event.secondplace.grade.sophomore
+						events_to_scores[event] = 8
+					elsif event.thirdplace.grade.sophomore
+						events_to_scores[event] = 6
+					elsif event.fourthplace.grade.sophomore
+						events_to_scores[event] = 4
+					end
+				end
+				events_to_scores.to_json
 			end
 
 			get '/api/junior' do
-
+				events_to_scores = Hash.new
+				events = Event.all
+				events.each do |event|
+					if event.firstplace.grade.junior
+						events_to_scores[event] = 10
+					elsif event.secondplace.grade.junior
+						events_to_scores[event] = 8
+					elsif event.thirdplace.grade.junior
+						events_to_scores[event] = 6
+					elsif event.fourthplace.grade.junior
+						events_to_scores[event] = 4
+					end
+				end
+				events_to_scores.to_json
 			end
 
 			get '/api/senior' do
-
+				events_to_scores = Hash.new
+				events = Event.all
+				events.each do |event|
+					if event.firstplace.grade.senior
+						events_to_scores[event] = 10
+					elsif event.secondplace.grade.senior
+						events_to_scores[event] = 8
+					elsif event.thirdplace.grade.senior
+						events_to_scores[event] = 6
+					elsif event.fourthplace.grade.senior
+						events_to_scores[event] = 4
+					end
+				end
+				events_to_scores.to_json
 			end
 		end
 	end
