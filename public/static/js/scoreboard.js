@@ -93,4 +93,30 @@ $(function() {
 
 	loadScores();
 	setInterval(loadScores, 5000);
+
+	$(".score").click(function() {
+		var endpointUrl;
+		if($(this).attr('id') == 'freshman-score') {
+			endpointUrl = '/api/freshman';
+		}
+		else if($(this).attr('id') == 'sophomore-score') {
+			endpointUrl = '/api/sophomore';
+		}
+		else if($(this).attr('id') == 'junior-score') {
+			endpointUrl = '/api/junior';
+		}
+		else if($(this).attr('id') == 'senior-score') {
+			endpointUrl = '/api/senior';
+		}
+		$.get(endpointUrl, function(data) {
+			var detailText;
+			var scores = JSON.parse(data);
+			for(var score in scores) {
+				if(scores.hasOwnProperty(score)) {
+					text += score + ": " + scores[score] + "\n";
+				}
+			}
+			$(this).text($(this).text + "\n" + detailText);
+		});
+	});
 });

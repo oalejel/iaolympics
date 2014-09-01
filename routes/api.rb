@@ -137,6 +137,23 @@ module Olympics
 				grade.destroy
 				"ok"
 			end
+
+
+			get '/api/freshman' do
+				
+			end
+
+			get '/api/sophomore' do
+
+			end
+
+			get '/api/junior' do
+
+			end
+
+			get '/api/senior' do
+
+			end
 		end
 	end
 end
