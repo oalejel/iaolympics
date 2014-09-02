@@ -27,4 +27,5 @@ module Olympics
 	end
 end
 
-Rack::Server.start({ :app => Olympics::App, :Port => 8080, :Host => "192.168.1.12"})
+Rack::Server.start({ :app => Olympics::App, :Port => 8080, :Host => "localhost"})
+# Rack::Server.start({ :app => Olympics::App, :Port => 8080, :Host => "192.168.1.12"})
