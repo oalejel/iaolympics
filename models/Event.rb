@@ -22,6 +22,8 @@ module Olympics
 			# Represents a first place win
 			belongs_to :grade, :key => true
 			belongs_to :event, :key => true
+
+			property :time, DateTime
 		end
 
 		class Secondplace
@@ -30,6 +32,8 @@ module Olympics
 			# Represents a second place performance
 			belongs_to :grade, :key => true
 			belongs_to :event, :key => true
+
+			property :time, DateTime
 		end
 
 
@@ -38,6 +42,8 @@ module Olympics
 
 			belongs_to :grade, :key	=> true
 			belongs_to :event, :key => true
+
+			property :time, DateTime
 		end
 
 		class Fourthplace
@@ -45,6 +51,8 @@ module Olympics
 
 			belongs_to :grade, :key => true
 			belongs_to :event, :key => true
+
+			property :time, DateTime
 		end
 	end
 end

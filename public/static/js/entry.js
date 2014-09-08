@@ -4,6 +4,8 @@ $(function() {
 	$("#deduct-form").hide();
 	$("#rescore-form").hide();
 
+	$(".button").show();
+
 	$(".action").click(function() {
 		$(this).parent().parent().parent().fadeOut(500);
 		$(".centered").fadeOut(500);
