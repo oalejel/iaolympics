@@ -19,6 +19,10 @@ module Olympics
 					erb :login, :locals => {:error => "Incorrect password."}
 				end
 			end
+			get '/logout' do
+				session[:authtoken] = nil
+				redirect '/'
+			end
 		end
 	end
 end

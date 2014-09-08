@@ -7,7 +7,7 @@ module Olympics
 				enable :sessions
 			end
 			get '/entry' do
-				if session[:authtoken] == nil
+				if session[:authtoken] != "authtoken"
 					redirect '/login'
 				else
 					erb :entry
