@@ -3,6 +3,7 @@ require 'rack'
 
 require './routes/api'
 require './routes/entry'
+require './routes/login'
 require './routes/manager'
 require './routes/scoreboard'
 
@@ -21,6 +22,7 @@ module Olympics
 
 		use Olympics::Routes::API
 		use Olympics::Routes::Entry
+		use Olympics::Routes::Login
 		use Olympics::Routes::Scoreboard
 		use Olympics::Routes::Manager
 
