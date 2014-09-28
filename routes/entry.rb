@@ -3,8 +3,15 @@ require 'sinatra'
 module Olympics
 	module Routes
 		class Entry < Sinatra::Application
+			configure do
+				enable :sessions
+			end
 			get '/entry' do
-				erb :entry
+				if session[:authtoken] != "authtoken"
+					redirect '/login'
+				else
+					erb :entry
+				end
 				# display form
 			end
 			post '/entry' do

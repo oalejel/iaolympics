@@ -17,28 +17,32 @@ module Olympics
 		end
 		class Manager < Sinatra::Application
 			get '/manager' do
-				freshman_grade = Olympics::Models::Grade.first(:freshman => true)
-				sophomore_grade = Olympics::Models::Grade.first(:sophomore => true)
-				junior_grade = Olympics::Models::Grade.first(:junior => true)
-				senior_grade = Olympics::Models::Grade.first(:senior => true)
+				if session[:authtoken] != "authtoken"
+					erb :login
+				else
+					freshman_grade = Olympics::Models::Grade.first(:freshman => true)
+					sophomore_grade = Olympics::Models::Grade.first(:sophomore => true)
+					junior_grade = Olympics::Models::Grade.first(:junior => true)
+					senior_grade = Olympics::Models::Grade.first(:senior => true)
 
-				# If the grades don't exist (first time loading up the form), fill it in with default values
+					# If the grades don't exist (first time loading up the form), fill it in with default values
 
-				if freshman_grade == nil
-					freshman_grade = PlaceholderGrade.new
+					if freshman_grade == nil
+						freshman_grade = PlaceholderGrade.new
+					end
+					if sophomore_grade == nil
+						sophomore_grade = PlaceholderGrade.new
+					end
+					if junior_grade == nil
+						junior_grade = PlaceholderGrade.new
+					end
+					if senior_grade == nil
+						senior_grade = PlaceholderGrade.new
+					end
+					erb :manager, :locals => {:freshman_grade => freshman_grade, :sophomore_grade => sophomore_grade,
+											  :junior_grade => junior_grade, :senior_grade => senior_grade}
+					# Display the manager form
 				end
-				if sophomore_grade == nil
-					sophomore_grade = PlaceholderGrade.new
-				end
-				if junior_grade == nil
-					junior_grade = PlaceholderGrade.new
-				end
-				if senior_grade == nil
-					senior_grade = PlaceholderGrade.new
-				end
-				erb :manager, :locals => {:freshman_grade => freshman_grade, :sophomore_grade => sophomore_grade,
-										  :junior_grade => junior_grade, :senior_grade => senior_grade}
-				# Display the manager form
 			end
 			post '/manager' do
 				# Updates classes using form data
