@@ -9,14 +9,29 @@ require './routes/scoreboard'
 
 load './models.rb'
 
+Dir.glob('./models/*.rb').each do |file|
+	load file
+end
+
 module Olympics
 	class App < Sinatra::Application
+		configure :development do
+			DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/olympics.db")
+			DataMapper.finalize
+			DataMapper.auto_upgrade!
+		end
+
+		configure :production do
+			DataMapper.setup(:default, ENV['HEROKU_POSTGRESQL_RED_URL'])
+			DataMapper.finalize
+			DataMapper.auto_upgrade!
+		end
+
 		configure do
 			enable :sessions
 
 			set :static, true
 			set :public_dir, 'public'
-			set :port, 1997
 			set :views, File.dirname(__FILE__) + '/views'
 		end
 
@@ -29,5 +44,4 @@ module Olympics
 	end
 end
 
-Rack::Server.start({ :app => Olympics::App, :Port => 8080, :Host => "localhost"})
-# Rack::Server.start({ :app => Olympics::App, :Port => 8080, :Host => "192.168.1.12"})
+Olympics::App.run!
