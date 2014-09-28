@@ -3,7 +3,7 @@
 
 require 'sinatra'
 
-require './models/grade'
+require './models/Grade'
 
 module Olympics
 	module Routes
