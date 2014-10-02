@@ -166,8 +166,12 @@ module Olympics
 				Olympics::Models::Event.create(:name => "4-square", :prettyname => "4 Square")
 				Olympics::Models::Event.create(:name => "soccer", :prettyname => "Soccer")
 				"ok"
+			elsif Olympics::Models::Event.first(:name => "spirit-week") == nil
+				Olympics::Models::Event.create(:name => "penny-wars", :prettyname => "Penny Wars")
+				Olympics::Models::Event.create(:name => "class-color", :prettyname => "Class Color and Can Drive")
+				Olympics::Models::Event.create(:name => "spirit-week", :prettyname => "Spirit Week")
 			else
-				"events already exist"
+				"all events already exist"
 			end
 		end
 		get '/api/scores' do
