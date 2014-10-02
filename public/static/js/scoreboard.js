@@ -92,7 +92,7 @@ $(function() {
 	}
 
 	loadScores();
-	setInterval(loadScores, 5000);
+	setInterval(loadScores, 15000);
 
 	$(".score").click(function() {
 		var endpointUrl;
