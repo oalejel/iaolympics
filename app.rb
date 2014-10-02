@@ -1,9 +1,9 @@
 require 'sinatra/base'
 require 'rack'
-require 'json'
 
 require 'dm-core'
 require 'dm-migrations'
+require 'dm-serializer'
 
 module Olympics
 	module Models
