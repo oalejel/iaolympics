@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'rack'
 require 'json'
 
-require 'datamapper'
+require 'dm-core'
 
 module Olympics
 	module Models
