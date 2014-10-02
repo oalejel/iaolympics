@@ -2,9 +2,6 @@ require 'sinatra/base'
 require 'rack'
 require 'json'
 
-
-require 'data_mapper'
-
 module Olympics
 	module Models
 		class Competition
