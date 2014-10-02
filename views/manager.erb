@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<title>Manager</title>
+		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+		<link rel="stylesheet" href="/static/css/spectrum.css">
+		<link rel="stylesheet" href="/static/css/manager.css">
+		<script src="/static/js/jquery.js"></script>
+		<script src="/static/js/spectrum.js"></script>
+		<script src="/static/js/manager.js"></script>
+	</head>
+	<body>
+		<div class="content">
+			<div class="overview">
+				<h2>Class Manager</h2>
+				<p>Use the form below to manage the different classes at IA (e.g. the class of 2015).</p>
+			</div>
+			<div id="forms" class="forms">
+				<form action="" method="post" class="grade" id="form1">
+					<p><b>Freshmen</b></p>
+					<input type="text" name="year" class="year" value="<%= freshman_grade.year %>"/>
+					<input type="text" name="color" class="color" id="freshman-color" value="<%= freshman_grade.colorhex %>"/>
+					<input type="text" name="theme" class="theme" value="<%= freshman_grade.theme %>"/>
+				</form>
+				<form action="" method="post" class="grade" id="form2">
+					<p><b>Sophomores</b></p>
+					<input type="text" name="year" class="year" value="<%= sophomore_grade.year %>"/>
+					<input type="text" name="color" class="color" id="sophomore-color" value="<%= sophomore_grade.colorhex %>"/>
+					<input type="text" name="theme" class="theme" value="<%= sophomore_grade.theme %>"/>
+				</form>
+				<form action="" method="post" class="grade" id="form3">
+					<p><b>Juniors</b></p>
+					<input type="text" name="year" class="year" value="<%= junior_grade.year %>"/>
+					<input type="text" name="color" class="color" id="junior-color" value="<%= junior_grade.colorhex %>"/>
+					<input type="text" name="theme" class="theme" value="<%= junior_grade.theme %>"/>
+				</form>
+				<form action="" method="post" class="grade" id="form4">
+					<p><b>Seniors</b></p>
+					<input type="text" name="year" class="year" value="<%= senior_grade.year %>"/>
+					<input type="text" name="color" class="color" id="senior-color" value="<%= senior_grade.colorhex %>"/>
+					<input type="text" name="theme" class="theme" value="<%= senior_grade.theme %>"/>
+				</form>
+			</div>
+			<div class="save" id="save-container">
+				<a id="save" class="pure-button pure-button-primary">Save changes</a>
+			</div>
+		</div>
+		<script>
+		$(function() {
+			$("#freshman-color").spectrum({
+				preferredFormat: "hex",
+				color: "#<%= freshman_grade.colorhex %>"
+			});
+			$("#sophomore-color").spectrum({
+				preferredFormat: "hex",
+				color: "#<%= sophomore_grade.colorhex %>"
+			});
+			$("#junior-color").spectrum({
+				preferredFormat: "hex",
+				color: "#<%= junior_grade.colorhex %>"
+			});
+			$("#senior-color").spectrum({
+				preferredFormat: "hex",
+				color: "#<= senior_grade.colorhex %>"
+			})
+		});
+		</script>
+	</body>
+</html>
