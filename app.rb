@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'rack'
 require 'json'
 
-require 'dm-postgres-adapter'
+require 'datamapper'
 
 module Olympics
 	module Models
