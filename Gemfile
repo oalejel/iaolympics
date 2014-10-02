@@ -9,5 +9,6 @@ end
 
 group :production do
 	gem "pg"
+	gem "dm-migrations"
 	gem "dm-postgres-adapter"
 end
