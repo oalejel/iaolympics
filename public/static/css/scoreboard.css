@@ -13,6 +13,10 @@ h2 {
 	text-align:center;
 }
 
+h3, h1 {
+	text-align:center;
+}
+
 .footer {
 	text-align:center;
 	color:#777777;
