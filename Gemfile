@@ -5,6 +5,7 @@ gem 'sinatra'
 group :development, :test do
 	gem "sqlite3"
 	gem "dm-sqlite-adapter"
+	gem "dm-migrations"
 end
 
 group :production do
