@@ -3,6 +3,7 @@ require 'rack'
 require 'json'
 
 require 'dm-core'
+require 'dm-migrations'
 
 module Olympics
 	module Models
