@@ -170,6 +170,7 @@ module Olympics
 				Olympics::Models::Event.create(:name => "penny-wars", :prettyname => "Penny Wars")
 				Olympics::Models::Event.create(:name => "class-color", :prettyname => "Class Color and Can Drive")
 				Olympics::Models::Event.create(:name => "spirit-week", :prettyname => "Spirit Week")
+				"ok"
 			else
 				"all events already exist"
 			end
