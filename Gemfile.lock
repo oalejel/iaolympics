@@ -21,6 +21,7 @@ GEM
       data_objects (= 0.10.14)
     do_sqlite3 (0.10.14)
       data_objects (= 0.10.14)
+    json (1.7.7)
     pg (0.17.1)
     rack (1.5.2)
     rack-protection (1.5.3)
@@ -39,6 +40,7 @@ DEPENDENCIES
   dm-migrations
   dm-postgres-adapter
   dm-sqlite-adapter
+  json
   pg
   sinatra
   sqlite3
