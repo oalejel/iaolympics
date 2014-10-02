@@ -18,6 +18,13 @@ module Olympics
 
 			# has n, :events
 		end
+
+		class Status
+			include DataMapper::Resource
+
+			property :id, Serial
+			property :text, String
+		end
 	end
 end
 
@@ -442,6 +449,19 @@ module Olympics
 
 				"ok"
 			end
+
+		get '/status' do
+			if session[:authtoken] != "authtoken"
+				redirect '/login'
+			else
+				erb :status
+			end
+		end
+
+		post '/status' do
+			text = params[:data]
+			status = Status.create(:text => text)
+		end
 
 		# use Olympics::Routes::API
 		# use Olympics::Routes::Entry
