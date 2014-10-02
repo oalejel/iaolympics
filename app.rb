@@ -2,6 +2,8 @@ require 'sinatra/base'
 require 'rack'
 require 'json'
 
+require 'dm-postgres-adapter'
+
 module Olympics
 	module Models
 		class Competition
