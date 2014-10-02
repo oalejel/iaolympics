@@ -1,11 +1,7 @@
 require 'sinatra/base'
 require 'rack'
+require 'json'
 
-require './routes/api'
-require './routes/entry'
-require './routes/login'
-require './routes/manager'
-require './routes/scoreboard'
 
 require 'data_mapper'
 
