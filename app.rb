@@ -125,7 +125,7 @@ module Olympics
 		end
 
 		configure :production do
-			DataMapper.setup(:default, ENV['HEROKU_POSTGRESQL_RED_URL'])
+			DataMapper.setup(:default, ENV['DATABASE_URL'])
 			DataMapper.finalize
 			DataMapper.auto_upgrade!
 		end
