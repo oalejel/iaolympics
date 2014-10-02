@@ -231,10 +231,10 @@ module Olympics
 
 			event = Olympics::Models::Event.first(:prettyname => event_name)
 
-			event.firstplace = Olympics::Models::Firstplace.create(:event => event, :grade => names_to_grades[first_place])
-			event.secondplace = Olympics::Models::Secondplace.create(:event => event, :grade => names_to_grades[second_place])
-			event.thirdplace = Olympics::Models::Thirdplace.create(:event => event, :grade => names_to_grades[third_place])
-			event.fourthplace = Olympics::Models::Fourthplace.create(:event => event, :grade => names_to_grades[fourth_place])
+			event.firstplace = Olympics::Models::Firstplace.create(:event => event, :grade => names_to_grades[first_place], :time => DateTime.now)
+			event.secondplace = Olympics::Models::Secondplace.create(:event => event, :grade => names_to_grades[second_place], :time => DateTime.now)
+			event.thirdplace = Olympics::Models::Thirdplace.create(:event => event, :grade => names_to_grades[third_place], :time => DateTime.now)
+			event.fourthplace = Olympics::Models::Fourthplace.create(:event => event, :grade => names_to_grades[fourth_place], :time => DateTime.now)
 			event.save
 
 			"ok"
