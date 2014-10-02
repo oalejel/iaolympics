@@ -75,6 +75,17 @@ module Olympics
 
 			property :time, DateTime
 		end
+
+		class DeductionEvent
+			include DataMapper::Resource
+
+			property :id, Serial
+
+			belongs_to :grade
+			property :points, Integer
+
+			property :time, DateTime
+		end
 	end
 end
 
@@ -260,8 +271,10 @@ module Olympics
 
 			if names_to_grades[gradename].deducted_points != nil
 				names_to_grades[gradename].deducted_points += points.to_i
+				deduction = Olympics::Models::DeductionEvent.create(:grade => names_to_grades[gradename], :points => points.to_i, :time => DateTime.now)
 			else
 				names_to_grades[gradename].deducted_points = points.to_i
+				deduction = Olympics::Models::DeductionEvent.create(:grade => names_to_grades[gradename], :points => points.to_i, :time => DateTime.now)
 			end
 
 			names_to_grades[gradename].save
