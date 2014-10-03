@@ -461,6 +461,7 @@ module Olympics
 		post '/status' do
 			text = params[:status]
 			status = Olympics::Models::Status.create(:text => text)
+			redirect '/status'
 		end
 
 		get '/api/status' do
