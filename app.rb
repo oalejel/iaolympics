@@ -190,13 +190,18 @@ module Olympics
 				Olympics::Models::Event.create(:name => "spirit-day-cans", :prettyname => "Spirit Week - Cans and Class Color")
 				"ok"
 			elsif  Olympics::Models::Event.first(:prettyname => "Minute to Win It") == nil
-				Olympics::Models::Event.create(:name => "minute-to-win-it", :prettyname => "Minute to Win It")
-				Olympics::Models::Event.create(:name => "tetris", :prettyname => "Arena Tetris")
 				"ok created"
 			else
 				"all events already exist"
 			end
 		end
+
+		get '/api/fix' do
+			Olympics::Models::Event.create(:name => "minute-to-win-it", :prettyname => "Minute to Win It")
+			Olympics::Models::Event.create(:name => "tetris", :prettyname => "Arena Tetris")
+			"done"
+		end
+
 		get '/api/scores' do
 			# Grabs score data
 			events = Olympics::Models::Event.all
