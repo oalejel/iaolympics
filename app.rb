@@ -197,9 +197,11 @@ module Olympics
 		end
 
 		get '/api/fix' do
-			Olympics::Models::Event.create(:name => "minute-to-win-it", :prettyname => "Minute to Win It")
-			Olympics::Models::Event.create(:name => "tetris", :prettyname => "Arena Tetris")
-			"done"
+			Olympics::Models::Event.first(:prettyname => "Ultimate Frisbee").destroy
+			Olympics::Models::Event.first(:prettyname => "Penny Wars").destroy
+			Olympics::Models::Event.create(:prettyname => "Ultimate Frisbee")
+			Olympics::Models::Event.create(:prettyname => "Penny Wars")
+			"ok"
 		end
 
 		get '/api/scores' do
