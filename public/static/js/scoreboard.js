@@ -57,9 +57,9 @@ $(function() {
 			juniorScore = data["junior"];
 			seniorScore = data["senior"];
 
-			$("#freshman-score").attr('data-score', freshmanScore);
+			$("#freshman-score").attr('data-score', freshmanScore + 1);
 			$("#sophomore-score").attr('data-score', sophomoreScore + 1);
-			$("#junior-score").attr('data-score', juniorScore + 2);
+			$("#junior-score").attr('data-score', juniorScore + 1);
 			$("#senior-score").attr('data-score', seniorScore - 3);
 
 			var divs = ["senior-score", "junior-score", "sophomore-score", "freshman-score"];
@@ -134,6 +134,9 @@ $(function() {
 								if(score == "Spirit Week - Cans and Class Color") {
 									detailHtml += "TIE for 1st place";
 								}
+								else if(score == "Minute to Win It") {
+									detailHtml += "TIE for 1st place";
+								}
 								else { 
 									detailHtml += "1st place";
 								}
@@ -147,6 +150,9 @@ $(function() {
 								}
 								else if(score == "Class Banner") {
 									detailHtml += "TIE for 2nd place"
+								}
+								else if(score == "Minute to Win It") {
+									detailHtml += "TIE for 1st place";
 								}
 								else {
 									detailHtml += "2nd place";
