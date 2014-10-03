@@ -178,7 +178,7 @@ module Olympics
 				Olympics::Models::Event.create(:name => "penny-wars", :prettyname => "Penny Wars")
 				Olympics::Models::Event.create(:name => "spirit-week", :prettyname => "Spirit Week")
 				"ok"
-			elsif Olympics::Models::Event.first(:name => "Spirit Week - Monday") == nil
+			elsif Olympics::Models::Event.first(:prettyname => "Spirit Week - Monday") == nil
 				Olympics::Models::Event.first(:name => "Spirit Week").destroy
 				Olympics::Models::Event.create(:name => "spirit-day-monday", :prettyname => "Spirit Week - Preppy Day")
 				Olympics::Models::Event.create(:name => "spirit-day-tuesday", :prettyname => "Spirit Week - Detroit vs. Everybody Day")
@@ -491,3 +491,5 @@ module Olympics
 
 	end
 end
+
+Olympics::App.run!
