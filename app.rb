@@ -187,7 +187,7 @@ module Olympics
 				Olympics::Models::Event.create(:name => "spirit-day-formal", :prettyname => "Spirit Week - Formal and Cultural Day")
 				Olympics::Models::Event.create(:name => "spirit-day-seasons", :prettyname => "Spirit Week - Seasons Day")
 				Olympics::Models::Event.create(:name => "spirit-day-sports", :prettyname => "Spirit Week - Sports Day")
-				Olympics::Models::Event.create(:name => "spirit-day-cans", :prettyname => "Spirit Week - Cans and Class Color")				"ok"
+				Olympics::Models::Event.create(:name => "spirit-day-cans", :prettyname => "Spirit Week - Cans and Class Color")
 			else
 				"all events already exist"
 			end
@@ -491,5 +491,3 @@ module Olympics
 
 	end
 end
-
-Olympics::App.run!
