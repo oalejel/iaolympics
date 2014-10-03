@@ -141,7 +141,6 @@ $(function() {
 							else if(scores[score] == 4) {
 								detailHtml += "4th place";
 							}
-							detailHtml += " (" + scores[score] + " points)";
 						}
 						else {
 							detailHtml += scores[score] + " points";
