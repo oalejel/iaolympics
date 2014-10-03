@@ -470,7 +470,7 @@ module Olympics
 			statuses.each do |status|
 				return_data.push(status.to_json)
 			end
-			return_data
+			return_data.to_json
 		end
 
 		# use Olympics::Routes::API
