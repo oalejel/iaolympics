@@ -38,9 +38,7 @@ $(function() {
 		$("#senior-score").css('background-color', JSON.parse(seniorGrade)["colorhex"]);
 	});
 
-	$.get('/api/status', function(jsonData) {
-		$("#status").text(jsonData);
-	});
+	
 
 	var originalScores = [$("#freshman-score").attr('data-score'), $("#sophomore-score").attr('data-score'),
 								  $("#junior-score").attr('data-score'), $("#senior-score").attr('data-score')];
@@ -92,6 +90,10 @@ $(function() {
 					scoreboard.createSlidebar($("#"+divs[i]), scores[i]);
 				}
 			}
+		});
+
+		$.get('/api/status', function(jsonData) {
+			$("#status").text(jsonData);
 		});
 	}
 
