@@ -1,6 +1,8 @@
 $(function() {
 	// ...
 
+	$("#policy").hide();
+
 	var Scoreboard = function(scores) {
 		this.scores = scores;
 		this.highestScore = this.max(scores);
@@ -38,7 +40,9 @@ $(function() {
 		$("#senior-score").css('background-color', JSON.parse(seniorGrade)["colorhex"]);
 	});
 
-	
+	$("#show-scoring").click(function() {
+		$("#policy").show();
+	});
 
 	var originalScores = [$("#freshman-score").attr('data-score'), $("#sophomore-score").attr('data-score'),
 								  $("#junior-score").attr('data-score'), $("#senior-score").attr('data-score')];
