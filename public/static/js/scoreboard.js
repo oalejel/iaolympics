@@ -137,6 +137,9 @@ $(function() {
 								else if(score == "Minute to Win It") {
 									detailHtml += "TIE for 1st place";
 								}
+								else if(score == "Ninja") {
+									detailHtml += "TIE for 1st place";
+								}
 								else { 
 									detailHtml += "1st place";
 								}
@@ -152,6 +155,9 @@ $(function() {
 									detailHtml += "TIE for 2nd place"
 								}
 								else if(score == "Minute to Win It") {
+									detailHtml += "TIE for 1st place";
+								}
+								else if(score == "Ninja") {
 									detailHtml += "TIE for 1st place";
 								}
 								else {
