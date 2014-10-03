@@ -127,21 +127,21 @@ $(function() {
 						detailHtml += "<b>" + score + "</b>: ";
 						if(score != "Deducted points") {
 							if(scores[score] == 10) {
-								if(score == "Spirit Week - Cans and Class Color") {
+								/*if(score == "Spirit Week - Cans and Class Color") {
 									detailHtml += "TIE for 1st place";
 								}
 								else if(score == "")
-								else {
+								else { */
 									detailHtml += "1st place";
-								}
+								/* } */
 							}
 							else if(scores[score] == 8) {
-								if(score == "Spirit Week - Cans and Class Color") {
+								/* if(score == "Spirit Week - Cans and Class Color") {
 									detailHtml += "TIE for 1st place";
 								}
-								else {
+								else { */
 									detailHtml += "2nd place";
-								}
+								/* } */
 							}
 							else if(scores[score] == 6) {
 								detailHtml += "3rd place";
