@@ -176,9 +176,18 @@ module Olympics
 				"ok"
 			elsif Olympics::Models::Event.first(:name => "spirit-week") == nil
 				Olympics::Models::Event.create(:name => "penny-wars", :prettyname => "Penny Wars")
-				Olympics::Models::Event.create(:name => "class-color", :prettyname => "Class Color and Can Drive")
 				Olympics::Models::Event.create(:name => "spirit-week", :prettyname => "Spirit Week")
 				"ok"
+			elif Olympics::Models::Event.first(:name => "Spirit Week - Monday") == nil
+				Olympics::Models::Event.first(:name => "Spirit Week").destroy
+				Olympics::Models::Event.create(:name => "spirit-day-monday", :prettyname => "Spirit Week - Preppy Day")
+				Olympics::Models::Event.create(:name => "spirit-day-tuesday", :prettyname => "Spirit Week - Detroit vs. Everybody Day")
+				Olympics::Models::Event.create(:name => "spirit-day-wednesday", :prettyname => "Spirit Week - Character Day")
+				Olympics::Models::Event.create(:name => "spirit-day-thursday", :prettyname => "Spirit Week - Pyjama Day")
+				Olympics::Models::Event.create(:name => "spirit-day-formal", :prettyname => "Spirit Week - Formal and Cultural Day")
+				Olympics::Models::Event.create(:name => "spirit-day-seasons", :prettyname => "Spirit Week - Seasons Day")
+				Olympics::Models::Event.create(:name => "spirit-day-sports", :prettyname => "Spirit Week - Sports Day")
+				Olympics::Models::Event.create(:name => "spirit-day-cans", :prettyname => "Spirit Week - Cans and Class Color")				"ok"
 			else
 				"all events already exist"
 			end
