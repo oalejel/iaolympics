@@ -155,7 +155,10 @@ $(function() {
 								else if(score == "Class Banner") {
 									detailHtml += "TIE for 2nd place"
 								}
-								detailHtml += "3rd place";
+								else {
+									detailHtml += "3rd place";
+								}
+								
 							}
 							else if(scores[score] == 4) {
 								detailHtml += "4th place";
