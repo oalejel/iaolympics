@@ -39,7 +39,7 @@ $(function() {
 	});
 
 	$.get('/api/status', function(jsonData) {
-		console.log(jsonData);
+		$("#status").text(jsonData);
 	});
 
 	var originalScores = [$("#freshman-score").attr('data-score'), $("#sophomore-score").attr('data-score'),
