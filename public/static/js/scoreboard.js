@@ -55,8 +55,8 @@ $(function() {
 
 			$("#freshman-score").attr('data-score', freshmanScore);
 			$("#sophomore-score").attr('data-score', sophomoreScore + 1);
-			$("#junior-score").attr('data-score', juniorScore + 1);
-			$("#senior-score").attr('data-score', seniorScore - 2);
+			$("#junior-score").attr('data-score', juniorScore + 2);
+			$("#senior-score").attr('data-score', seniorScore - 3);
 
 			var divs = ["senior-score", "junior-score", "sophomore-score", "freshman-score"];
 			var scores = [];
