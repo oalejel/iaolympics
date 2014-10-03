@@ -54,9 +54,9 @@ $(function() {
 			seniorScore = data["senior"];
 
 			$("#freshman-score").attr('data-score', freshmanScore);
-			$("#sophomore-score").attr('data-score', sophomoreScore);
-			$("#junior-score").attr('data-score', juniorScore);
-			$("#senior-score").attr('data-score', seniorScore);
+			$("#sophomore-score").attr('data-score', sophomoreScore + 1);
+			$("#junior-score").attr('data-score', juniorScore + 1);
+			$("#senior-score").attr('data-score', seniorScore - 2);
 
 			var divs = ["senior-score", "junior-score", "sophomore-score", "freshman-score"];
 			var scores = [];
@@ -128,6 +128,9 @@ $(function() {
 						if(score != "Deducted points") {
 							if(scores[score] == 10) {
 								detailHtml += "1st place";
+								if(score == "Spirit Week - Cans and Class Color") {
+
+								}
 							}
 							else if(scores[score] == 8) {
 								detailHtml += "2nd place";
