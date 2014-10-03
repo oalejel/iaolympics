@@ -127,23 +127,34 @@ $(function() {
 						detailHtml += "<b>" + score + "</b>: ";
 						if(score != "Deducted points") {
 							if(scores[score] == 10) {
-								/*if(score == "Spirit Week - Cans and Class Color") {
+								if(score == "Spirit Week - Cans and Class Color") {
 									detailHtml += "TIE for 1st place";
 								}
-								else if(score == "")
-								else { */
+								else { 
 									detailHtml += "1st place";
-								/* } */
+								}
 							}
 							else if(scores[score] == 8) {
-								/* if(score == "Spirit Week - Cans and Class Color") {
+								if(score == "Spirit Week - Cans and Class Color") {
 									detailHtml += "TIE for 1st place";
 								}
-								else { */
+								else if(score == "Oakland County 500 - Artistic") {
+									detailHtml += "TIE for 2nd place"
+								}
+								else if(score == "Class Banner") {
+									detailHtml += "TIE for 2nd place"
+								}
+								else {
 									detailHtml += "2nd place";
-								/* } */
+								}
 							}
 							else if(scores[score] == 6) {
+								if(score == "Oakland County 500 - Artistic") {
+									detailHtml += "TIE for 2nd place"
+								}
+								else if(score == "Class Banner") {
+									detailHtml += "TIE for 2nd place"
+								}
 								detailHtml += "3rd place";
 							}
 							else if(scores[score] == 4) {
