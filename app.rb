@@ -192,7 +192,7 @@ module Olympics
 			elsif  Olympics::Models::Event.first(:prettyname => "Minute to Win It") == nil
 				Olympics::Models::Event.create(:name => "minute-to-win-it", :prettyname => "Minute to Win It")
 				Olympics::Models::Event.create(:name => "tetris", :prettyname => "Arena Tetris")
-				"ok"
+				"ok created"
 			else
 				"all events already exist"
 			end
