@@ -459,8 +459,17 @@ module Olympics
 		end
 
 		post '/status' do
-			text = params[:data]
-			status = Status.create(:text => text)
+			text = params[:status]
+			status = Olympics::Models::Status.create(:text => text)
+		end
+
+		get '/api/status' do
+			statuses = Olympics::Models::Status.all
+			return_data = []
+			statuses.each do |status|
+				return_data.push(status.to_json)
+			end
+			return_data
 		end
 
 		# use Olympics::Routes::API
