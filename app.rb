@@ -468,9 +468,10 @@ module Olympics
 			statuses = Olympics::Models::Status.all
 			return_data = []
 			statuses.each do |status|
-				return_data.push(status.to_json)
+				return_data.push(status)
 			end
-			return_data.to_json
+			most_recent_status = return_data[return_data.length - 1]
+			most_recent_status.text
 		end
 
 		# use Olympics::Routes::API
