@@ -483,4 +483,4 @@ module Olympics
 	end
 end
 
-# Olympics::App.run!
+Olympics::App.run!
