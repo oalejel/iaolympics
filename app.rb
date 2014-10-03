@@ -197,8 +197,9 @@ module Olympics
 		end
 
 		get '/api/fix' do
-			Olympics::Models::Event.first(:prettyname => "Spirit Week - Preppy Day").destroy
-			Olympics::Models::Event.create(:prettyname => "Spirit Week - Preppy Day")
+			Olympics::Models::Event.first(:prettyname => "Tug of War").destroy
+			Olympics::Models::Event.create(:prettyname => "Tug of War - Girls")
+			Olympics::Models::Event.create(:prettyname => "Tug of War - Boys")
 			"ok"
 		end
 
