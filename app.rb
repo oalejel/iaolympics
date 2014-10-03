@@ -188,9 +188,11 @@ module Olympics
 				Olympics::Models::Event.create(:name => "spirit-day-seasons", :prettyname => "Spirit Week - Seasons Day")
 				Olympics::Models::Event.create(:name => "spirit-day-sports", :prettyname => "Spirit Week - Sports Day")
 				Olympics::Models::Event.create(:name => "spirit-day-cans", :prettyname => "Spirit Week - Cans and Class Color")
+				"ok"
 			elsif  Olympics::Models::Event.first(:prettyname => "Minute to Win It") == nil
 				Olympics::Models::Event.create(:name => "minute-to-win-it", :prettyname => "Minute to Win It")
 				Olympics::Models::Event.create(:name => "tetris", :prettyname => "Arena Tetris")
+				"ok"
 			else
 				"all events already exist"
 			end
